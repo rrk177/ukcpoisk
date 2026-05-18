@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Бесплатные семинары — ГК ПОИСК</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="poisk_landing.css">
+<style>
+
+/* LAYOUT */
+.sem-layout { max-width: 900px; margin: 0 auto; padding: 3.5rem 2.5rem 5rem; }
+
+/* MAIN CONTENT */
+.sem-main { display: flex; flex-direction: column; gap: 2rem; }
+
+/* INFO CARDS */
+.info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.info-card { background: white; border: 1px solid var(--border); border-radius: var(--r2); padding: 1.4rem; }
+.info-card-ico { font-size: 22px; margin-bottom: .6rem; }
+.info-card-t { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+.info-card-d { font-size: 12px; color: var(--muted); line-height: 1.65; }
+.info-card-link { font-size: 13px; font-weight: 700; color: var(--blue); text-decoration: none; }
+.info-card-link:hover { text-decoration: underline; }
+
+/* RULES BLOCK */
+.rules-block { background: #FFF8E1; border: 1px solid #FFE082; border-radius: var(--r2); padding: 1.5rem 1.75rem; }
+.rules-title { font-size: 12px; font-weight: 700; color: #E65100; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+.rules-list { display: flex; flex-direction: column; gap: .7rem; }
+.rule-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--mid); line-height: 1.65; }
+.rule-ico { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+/* CERTIFICATE BADGE */
+.cert-badge { display: inline-flex; align-items: center; gap: 9px; background: #E8F5E9; border: 1px solid #A5D6A7; color: #1B5E20; padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 700; }
+.cert-badge-ico { font-size: 20px; }
+
+/* ADDRESS */
+.address-block { display: flex; align-items: center; gap: 10px; background: var(--ice); border: 1px solid var(--border2); border-radius: var(--r); padding: 12px 16px; font-size: 13px; color: var(--mid); font-weight: 500; }
+
+/* SCHEDULE */
+.schedule-block { background: white; border: 1px solid var(--border); border-radius: var(--r2); overflow: hidden; }
+.schedule-header { background: var(--navy); padding: 1.25rem 1.75rem; display: flex; align-items: center; justify-content: space-between; }
+.schedule-title { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 700; color: white; }
+.schedule-badge { font-size: 11px; font-weight: 700; color: var(--gold); background: rgba(200,169,110,.12); border: 1px solid rgba(200,169,110,.25); border-radius: 6px; padding: 4px 10px; }
+.schedule-table { width: 100%; border-collapse: collapse; }
+.schedule-table thead th { background: var(--off); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); padding: .9rem 1.5rem; text-align: left; border-bottom: 1px solid var(--border); }
+.schedule-table tbody tr { border-bottom: 1px solid var(--border); transition: background .2s; }
+.schedule-table tbody tr:last-child { border: none; }
+.schedule-table tbody tr:hover { background: var(--ice); }
+.schedule-table td { padding: 1.1rem 1.5rem; vertical-align: top; }
+.td-date { white-space: nowrap; }
+.date-main { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue); }
+.date-time { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.td-topic { font-size: 14px; color: var(--text); line-height: 1.55; font-weight: 600; }
+.btn-register-sm { display: inline-flex; align-items: center; gap: 5px; background: var(--ice); color: var(--blue); border: 1px solid var(--border2); border-radius: var(--r); padding: 6px 14px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Manrope', sans-serif; text-decoration: none; transition: background .2s, border-color .2s; white-space: nowrap; }
+.btn-register-sm:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+/* REGISTRATION FORM */
+.reg-block { background: white; border: 1px solid var(--border); border-radius: var(--r2); overflow: hidden; }
+.reg-header { background: var(--blue); padding: 1.5rem 1.75rem; }
+.reg-title { font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 700; color: white; margin-bottom: .35rem; }
+.reg-sub { font-size: 12px; color: rgba(255,255,255,.5); }
+.reg-form { padding: 1.75rem; display: flex; flex-direction: column; gap: 1.1rem; }
+.reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.reg-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+.field { display: flex; flex-direction: column; gap: .35rem; }
+.field label { font-size: 11px; font-weight: 700; color: var(--mid); letter-spacing: .3px; }
+.field label span { color: var(--red); }
+.field select, .field input[type=text], .field input[type=tel], .field input[type=email] {
+  width: 100%;
+  background: var(--off);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 10px 13px;
+  font-size: 13px;
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  outline: none;
+  transition: border-color .2s, background .2s;
+  appearance: none;
+}
+.field select { background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%236B90B8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; }
+.field select:focus, .field input:focus { border-color: var(--blue); background: white; }
+.field input::placeholder { color: var(--faint); }
+.inn-note { font-size: 11px; color: var(--muted); margin-top: .2rem; }
+.reg-check { display: flex; align-items: flex-start; gap: 10px; }
+.reg-check input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--blue); flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+.reg-check label { font-size: 12px; color: var(--mid); line-height: 1.6; cursor: pointer; }
+.reg-footer { display: flex; flex-direction: column; gap: .75rem; }
+.reg-consent { font-size: 11px; color: var(--faint); line-height: 1.6; }
+.reg-consent a { color: var(--blue); }
+.btn-submit { align-self: flex-start; background: var(--blue); color: white; border: none; border-radius: var(--r2); padding: 13px 36px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Manrope', sans-serif; transition: background .2s, transform .15s; }
+.btn-submit:hover { background: var(--blue2); transform: translateY(-1px); }
+
+@media (max-width: 1024px) {
+  .sem-layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .info-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .info-cards { grid-template-columns: 1fr; }
+  .reg-row { grid-template-columns: 1fr; }
+  .reg-row.triple { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-i">
+    <a href="poisk_landing.html" class="logo">
+      <img src="logo (1).png" alt="ГК ПОИСК" style="height:40px;width:auto;display:block;">
+    </a>
+    <div class="nav-links">
+      <a href="poisk_landing.html#services">Услуги</a>
+      <a href="about.html">О компании</a>
+      <a href="seminars.html" class="nav-active">Семинары</a>
+      <a href="prices.html">Цены</a>
+      <a href="poisk_landing.html#contacts">Контакты</a>
+    </div>
+    <div class="nav-r">
+      <a href="tel:+74957846316" class="nav-phone">+7 (495) 784-63-16</a>
+      <a href="poisk_landing.html#cta" class="btn">Консультация →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="poisk_landing.html">Главная</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Бесплатные семинары</span>
+    </div>
+    <div class="page-hero-eye">Обучение и развитие</div>
+    <h1 class="page-hero-h">Бесплатные семинары</h1>
+    <p class="page-hero-sub">Записывайтесь на актуальные семинары по охране труда, пожарной безопасности и трудовому законодательству. 200+ семинаров ежегодно — совершенно бесплатно.</p>
+  </div>
+</section>
+
+<!-- MAIN LAYOUT -->
+<div style="background:var(--off);border-top:1px solid var(--border)">
+<div class="sem-layout">
+
+  <!-- MAIN -->
+  <main class="sem-main">
+
+    <!-- INFO CARDS -->
+    <div class="info-cards fade">
+      <div class="info-card">
+        <div class="info-card-ico">📞</div>
+        <div class="info-card-t">Записаться по телефону</div>
+        <div class="info-card-d"><a href="tel:+74957846316" class="info-card-link">(495) 784-63-16</a></div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">✉️</div>
+        <div class="info-card-t">Записаться по e-mail</div>
+        <div class="info-card-d"><a href="mailto:zayavka@ukcpoisk.ru" class="info-card-link">zayavka@ukcpoisk.ru</a></div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">📍</div>
+        <div class="info-card-t">Адрес проведения</div>
+        <div class="info-card-d">1-й Автозаводский проезд, д.4, корп.1, офис 40, 52</div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATE BADGE -->
+    <div class="fade">
+      <div class="cert-badge">
+        <span class="cert-badge-ico">🏅</span>
+        По окончании семинара слушателям выдаётся сертификат участника
+      </div>
+    </div>
+
+    <!-- RULES -->
+    <div class="rules-block fade">
+      <div class="rules-title">⚠ Важная информация</div>
+      <div class="rules-list">
+        <div class="rule-item"><span class="rule-ico">👤</span>От организации на семинар принимается только <strong>один слушатель</strong>.</div>
+        <div class="rule-item"><span class="rule-ico">📋</span>Для участия необходимо <strong>заранее направить заявку</strong>. Без заявки регистрация в день проведения невозможна.</div>
+        <div class="rule-item"><span class="rule-ico">📩</span>Заявки принимаются по телефону <strong>(495) 784-63-16</strong> или на сайте <strong>www.ukcpoisk.ru</strong>.</div>
+      </div>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div class="schedule-block fade">
+      <div class="schedule-header">
+        <div class="schedule-title">График семинаров</div>
+        <div class="schedule-badge">2026 год</div>
+      </div>
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th style="width:160px">Дата и время</th>
+            <th>Тема семинара</th>
+            <th style="width:130px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-date">
+              <div class="date-main">12.02.2026</div>
+              <div class="date-time">в 11:00</div>
+            </td>
+            <td class="td-topic">Изменения по охране труда в 2026 году</td>
+            <td><a href="#registration" class="btn-register-sm">Записаться →</a></td>
+          </tr>
+          <tr>
+            <td class="td-date">
+              <div class="date-main">12.03.2026</div>
+              <div class="date-time">в 11:00</div>
+            </td>
+            <td class="td-topic">План работ по воинскому учёту на 2026 год: краткое руководство для организаций</td>
+            <td><a href="#registration" class="btn-register-sm">Записаться →</a></td>
+          </tr>
+          <tr>
+            <td class="td-date">
+              <div class="date-main">26.03.2026</div>
+              <div class="date-time">в 11:00</div>
+            </td>
+            <td class="td-topic">Проведение производственного контроля на предприятиях различных отраслей</td>
+            <td><a href="#registration" class="btn-register-sm">Записаться →</a></td>
+          </tr>
+          <tr>
+            <td class="td-date">
+              <div class="date-main">02.04.2026</div>
+              <div class="date-time">в 11:00</div>
+            </td>
+            <td class="td-topic">Профессиональные риски: правовая основа, организация проведения. Ответственность работодателя. Возмещение затрат через СФР.</td>
+            <td><a href="#registration" class="btn-register-sm">Записаться →</a></td>
+          </tr>
+          <tr>
+            <td class="td-date">
+              <div class="date-main">09.04.2026</div>
+              <div class="date-time">в 11:00</div>
+            </td>
+            <td class="td-topic">Актуальные изменения по пожарной безопасности в 2026 году</td>
+            <td><a href="#registration" class="btn-register-sm">Записаться →</a></td>
+          </tr>
+          <tr>
+            <td class="td-date">
+              <div class="date-main">16.04.2026</div>
+              <div class="date-time">в 11:00</div>
+            </td>
+            <td class="td-topic">Изменения в трудовом законодательстве 2026</td>
+            <td><a href="#registration" class="btn-register-sm">Записаться →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- REGISTRATION FORM -->
+    <div class="reg-block fade" id="registration">
+      <div class="reg-header">
+        <div class="reg-title">Записаться на семинар</div>
+        <div class="reg-sub">Заполните форму — мы свяжемся для подтверждения участия</div>
+      </div>
+      <form class="reg-form" onsubmit="return false">
+
+        <div class="field">
+          <label>Тема семинара <span>*</span></label>
+          <select required>
+            <option value="" disabled selected>Выберите семинар</option>
+            <option>12.02.2026 — Изменения по охране труда в 2026 году</option>
+            <option>12.03.2026 — План работ по воинскому учёту на 2026 год</option>
+            <option>26.03.2026 — Проведение производственного контроля</option>
+            <option>02.04.2026 — Профессиональные риски</option>
+            <option>09.04.2026 — Актуальные изменения по пожарной безопасности</option>
+            <option>16.04.2026 — Изменения в трудовом законодательстве 2026</option>
+          </select>
+        </div>
+
+        <div class="reg-row triple">
+          <div class="field">
+            <label>Фамилия <span>*</span></label>
+            <input type="text" placeholder="Иванов" required>
+          </div>
+          <div class="field">
+            <label>Имя <span>*</span></label>
+            <input type="text" placeholder="Иван" required>
+          </div>
+          <div class="field">
+            <label>Отчество <span>*</span></label>
+            <input type="text" placeholder="Иванович" required>
+          </div>
+        </div>
+
+        <div class="reg-row">
+          <div class="field">
+            <label>Телефон <span>*</span></label>
+            <input type="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <label>E-mail <span>*</span></label>
+            <input type="email" placeholder="example@company.ru" required>
+          </div>
+        </div>
+
+        <div class="reg-row">
+          <div class="field">
+            <label>Организация <span>*</span></label>
+            <input type="text" placeholder="ООО «Название»" required>
+          </div>
+          <div class="field">
+            <label>ИНН <span>*</span></label>
+            <input type="text" placeholder="7700000000" required>
+            <span class="inn-note">* Для корректной обработки заявки указывайте действительный ИНН</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Должность <span>*</span></label>
+          <input type="text" placeholder="Специалист по охране труда" required>
+        </div>
+
+        <div class="reg-check">
+          <input type="checkbox" id="mailing">
+          <label for="mailing">Даю согласие на рассылку материалов по итогам семинара</label>
+        </div>
+
+        <div class="reg-footer">
+          <p class="reg-consent">Нажимая на кнопку, Вы даёте согласие на <a href="#">обработку персональных данных</a></p>
+          <button class="btn-submit" type="submit">Отправить заявку →</button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-i">
+    <div class="ft-top">
+      <div>
+        <img src="logo (1).png" alt="ГК ПОИСК" style="height:36px;width:auto;display:block;filter:brightness(0) invert(1);">
+        <p class="ft-desc">37+ лет помогаем бизнесу работать безопасно и без штрафов. 30 000+ клиентов по всей России.</p>
+        <div class="ft-phone">+7 (495) 784-63-16</div>
+        <div class="ft-mail">info@ukcpoisk.ru · Пн–Пт 9:30–17:00</div>
+        <div class="ft-mail">м. Автозаводская, 1-й Автозаводский пр-д, д.4, к.1</div>
+      </div>
+      <div class="ft-col">
+        <h5>Услуги</h5>
+        <a href="poisk_landing.html#services">Охрана труда</a>
+        <a href="poisk_landing.html#services">СОУТ</a>
+        <a href="poisk_landing.html#services">Производственный контроль</a>
+        <a href="poisk_landing.html#services">Пожарная безопасность</a>
+        <a href="poisk_landing.html#services">Электробезопасность</a>
+      </div>
+      <div class="ft-col">
+        <h5>Обучение</h5>
+        <a href="#">Очное</a>
+        <a href="#">Дистанционное</a>
+        <a href="seminars.html">Семинары</a>
+        <a href="#">Расписание</a>
+        <a href="#">Программы</a>
+      </div>
+      <div class="ft-col">
+        <h5>Компания</h5>
+        <a href="about.html">О нас</a>
+        <a href="poisk_landing.html#why">Лицензии</a>
+        <a href="prices.html">Цены</a>
+        <a href="poisk_landing.html#contacts">Контакты</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 1988–2026 Группа Компаний «Поиск». Все права защищены.</div>
+      <div class="ft-leg"><a href="#">Политика персональных данных</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e => {
+  e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+}, { threshold: .08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+// Highlight selected seminar from table buttons
+document.querySelectorAll('.btn-register-sm').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const topic = btn.closest('tr').querySelector('.td-topic').textContent;
+    const select = document.querySelector('#registration select');
+    for (let opt of select.options) {
+      if (opt.text.includes(topic.substring(0, 20))) {
+        select.value = opt.value;
+        break;
+      }
+    }
+    document.getElementById('registration').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>

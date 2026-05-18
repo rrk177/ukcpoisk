@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ГК ПОИСК — Охрана труда и безопасность бизнеса под ключ</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="poisk_landing.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-i">
+    <a href="#" class="logo">
+      <img src="logo (1).png" alt="ГК ПОИСК" style="height:40px;width:auto;display:block;">
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="about.html">О компании</a>
+      <a href="seminars.html">Семинары</a>
+      <a href="prices.html">Цены</a>
+      <a href="#contacts">Контакты</a>
+      <a href="tel:+74957846316" class="nav-links-phone">+7 (495) 784-63-16</a>
+    </div>
+    <div class="nav-r">
+      <a href="tel:+74957846316" class="nav-phone">+7 (495) 784-63-16</a>
+      <a href="#cta" class="btn">Консультация →</a>
+      <button class="nav-ham" id="nav-ham" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     1. HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <svg class="h-grid" width="100%" height="100%" style="position:absolute;inset:0;z-index:0;pointer-events:none">
+    <defs><pattern id="gp" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0L0 0 0 48" fill="none" stroke="rgba(21,87,192,0.07)" stroke-width=".8"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#gp)"/>
+  </svg>
+  <div class="blob" style="width:500px;height:500px;background:radial-gradient(circle,rgba(180,210,255,.4) 0%,transparent 70%);top:-140px;right:-80px;z-index:1"></div>
+  <div class="blob" style="width:280px;height:280px;background:radial-gradient(circle,rgba(200,224,255,.3) 0%,transparent 70%);bottom:60px;left:42%;z-index:1"></div>
+  <canvas id="lines-c"></canvas>
+  <div id="chips-root"></div>
+  <div class="h-mask"></div>
+
+  <div class="hero-left">
+    <div class="eyebrow">
+      <div class="ey-bar"></div>
+      <div class="ey-t">Охрана труда · Пожарная безопасность · СОУТ · Обучение</div>
+    </div>
+    <h1 class="hero-h1">Мы находим<br>нарушения <em>раньше,</em><br>чем их найдут<br><span>проверяющие</span></h1>
+    <p class="hero-sub">Аутсорсинг безопасности под ключ — без штатного специалиста.<br><strong>27 000+ компаний по всей России доверяют нам охрану труда и промышленную безопасность.</strong></p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn btn-lg">Получить консультацию бесплатно →</a>
+      <a href="#services" class="btn btn-lg btn-out">Наши услуги</a>
+    </div>
+    <div class="hero-nums">
+      <div><div class="hn-n">37<em>+</em></div><div class="hn-l">лет на рынке</div></div>
+      <div><div class="hn-n">27<em>К</em></div><div class="hn-l">клиентов</div></div>
+      <div><div class="hn-n">130<em>+</em></div><div class="hn-l">специалистов<br>в штате</div></div>
+      <div><div class="hn-n">200<em>+</em></div><div class="hn-l">семинаров<br>в год</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     2. УСЛУГИ (Pain + Services объединены)
+════════════════════════════════════════ -->
+<section class="svc-sec" id="services">
+  <div class="si">
+
+    <!-- Подзаголовок -->
+    <div class="svc-hd fade">
+      <div>
+        <div class="sec-ey">Услуги</div>
+        <h2 class="sec-t">Найдите вашу ситуацию —<br>покажем решение</h2>
+      </div>
+      <a href="prices.html" class="btn btn-out">Смотреть цены →</a>
+    </div>
+
+    <!-- Pain-карточки → каждая ведёт к своей карточке услуги ниже -->
+    <div class="pain-g" style="margin-bottom:1rem">
+      <a href="#sv-ot"  class="pc r fade"><div class="pc-lbl r">⚠ Срочно</div><div class="pc-q"><strong>«Роструд уведомил о проверке через 2 недели,</strong> а документы по ОТ не обновлялись 3 года»</div><div class="pc-sol"><div class="pc-arr">→</div>Аутсорсинг охраны труда</div></a>
+      <a href="#sv-sout" class="pc a fade"><div class="pc-lbl a">⚡ Требование</div><div class="pc-q"><strong>«СОУТ не проводилась 5+ лет,</strong> HR давит, сотрудники жалуются на условия труда»</div><div class="pc-sol"><div class="pc-arr">→</div>Спецоценка условий труда</div></a>
+      <a href="#sv-edu" class="pc b fade"><div class="pc-lbl b">📋 Плановое</div><div class="pc-q"><strong>«Нужно обучить 50+ человек</strong> по охране труда и пожбезопасности без отрыва от работы»</div><div class="pc-sol"><div class="pc-arr">→</div>Дистанционное обучение</div></a>
+      <a href="#sv-fire" class="pc r fade"><div class="pc-lbl r">⚠ Риск</div><div class="pc-q"><strong>«МЧС пришёл с проверкой,</strong> нашли нарушения — нужно срочно устранить и закрыть документально»</div><div class="pc-sol"><div class="pc-arr">→</div>Пожарная безопасность</div></a>
+      <a href="#sv-lab" class="pc a fade"><div class="pc-lbl a">⚡ Технический</div><div class="pc-q"><strong>«Ростехнадзор требует протоколы</strong> электроизмерений для страхования объекта»</div><div class="pc-sol"><div class="pc-arr">→</div>Электроизмерительная лаборатория</div></a>
+      <a href="#sv-ot"  class="pc b fade"><div class="pc-lbl b">📋 Комплекс</div><div class="pc-q"><strong>«Расширяем производство —</strong> нужно закрыть все вопросы безопасности от СОУТ до обучения»</div><div class="pc-sol"><div class="pc-arr">→</div>Комплексное сопровождение</div></a>
+    </div>
+
+    <!-- Разделитель -->
+    <div class="svc-divider fade">
+      <span>Все направления работы</span>
+    </div>
+
+    <!-- Сетка услуг — id на каждой карточке для скролла из pain -->
+    <div class="svc-g">
+      <div id="sv-ot"   class="sv fade"><div class="sv-top"><div class="sv-num">01</div><div class="sv-badge b-req">Обязательно</div></div><div class="sv-ico">🛡️</div><div class="sv-t">Охрана труда</div><div class="sv-pain">Штраф до 200 000 ₽ за нарушения</div><div class="sv-d">Полный аутсорсинг под ключ — документация, инструктажи, проверки без найма в штат.</div><a href="prices.html#ot" class="sv-more">Подробнее →</a></div>
+      <div id="sv-sout" class="sv fade"><div class="sv-top"><div class="sv-num">02</div><div class="sv-badge b-req">Обязательно</div></div><div class="sv-ico">🔬</div><div class="sv-t">Спецоценка (СОУТ)</div><div class="sv-pain">Без СОУТ — приостановка деятельности</div><div class="sv-d">Собственная аккредитованная лаборатория. Срок соблюдён, сдача в Роструд без замечаний.</div><a href="prices.html#ot" class="sv-more">Подробнее →</a></div>
+      <div id="sv-edu"  class="sv fade"><div class="sv-top"><div class="sv-num">03</div><div class="sv-badge b-pop">Популярное</div></div><div class="sv-ico">🎓</div><div class="sv-t">Обучение персонала</div><div class="sv-pain">Необученный сотрудник = личная ответственность директора</div><div class="sv-d">35+ программ очно и онлайн. Удостоверения гособразца за 3–5 дней.</div><a href="prices.html#ot" class="sv-more">Подробнее →</a></div>
+      <div id="sv-fire" class="sv fade"><div class="sv-top"><div class="sv-num">04</div><div class="sv-badge b-req">Обязательно</div></div><div class="sv-ico">🔥</div><div class="sv-t">Пожарная безопасность</div><div class="sv-pain">Штраф за нарушения ПБ — до 400 000 ₽ для организации</div><div class="sv-d">Аудит, документация, обучение, сопровождение проверок МЧС. Полная готовность.</div><a href="prices.html#fire" class="sv-more">Подробнее →</a></div>
+      <div id="sv-pk"   class="sv fade"><div class="sv-top"><div class="sv-num">05</div><div class="sv-badge b-pop">Популярное</div></div><div class="sv-ico">📊</div><div class="sv-t">Производственный контроль</div><div class="sv-pain">Нарушение санитарных норм = остановка</div><div class="sv-d">Программы ПК, замеры, протоколы. Полное соответствие Роспотребнадзору.</div><a href="prices.html#pk" class="sv-more">Подробнее →</a></div>
+      <div id="sv-lab"  class="sv fade"><div class="sv-top"><div class="sv-num">06</div><div class="sv-badge b-lab">Лаборатория</div></div><div class="sv-ico">⚡</div><div class="sv-t">Электроизмерительная лаборатория</div><div class="sv-pain">Ростехнадзор и страховщики требуют замеры</div><div class="sv-d">Замеры сопротивления, заземления, молниезащиты. Протоколы установленного образца.</div><a href="prices.html#lab" class="sv-more">Подробнее →</a></div>
+      <div id="sv-elec" class="sv fade"><div class="sv-top"><div class="sv-num">07</div><div class="sv-badge b-lab">Производство</div></div><div class="sv-ico">⚡</div><div class="sv-t">Электробезопасность</div><div class="sv-pain">Ростехнадзор требует актуальные допуски</div><div class="sv-d">Обучение, проверка знаний, присвоение групп, удостоверения для всех категорий персонала.</div><a href="prices.html#elec" class="sv-more">Подробнее →</a></div>
+      <div id="sv-dist" class="sv fade"><div class="sv-top"><div class="sv-num">08</div><div class="sv-badge b-pop">Онлайн</div></div><div class="sv-ico">💻</div><div class="sv-t">Дистанционное обучение</div><div class="sv-pain">50+ человек без отрыва от производства</div><div class="sv-d">Удостоверения гособразца онлайн. Без поездок, без простоев. 35+ программ.</div><a href="prices.html#ot" class="sv-more">Подробнее →</a></div>
+      <div id="sv-law"  class="sv fade"><div class="sv-top"><div class="sv-num">09</div><div class="sv-badge b-uniq">Уникально в нише</div></div><div class="sv-ico">⚖</div><div class="sv-t">Юридические и бухгалтерские услуги</div><div class="sv-pain">Правовые и налоговые риски без защиты</div><div class="sv-d">Юридическое сопровождение, защита при проверках, бухгалтерский аутсорсинг.</div><a href="#cta" class="sv-more">Узнать подробнее →</a></div>
+    </div>
+
+    <!-- Ценовой якорь -->
+    <div class="svc-foot fade">
+      <div class="svc-foot-price">Аутсорсинг охраны труда — <strong>от 18 000 ₽/месяц.</strong> Стоимость ниже содержания штатного специалиста.</div>
+      <a href="#cta" class="btn btn-lg">Обсудить вашу задачу →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     3. ДОВЕРИЕ (Клиенты + Отзывы + Лицензии)
+════════════════════════════════════════ -->
+<section class="proof-sec" id="reviews">
+  <div class="proof-i">
+
+    <div class="sec-ey fade" style="color:rgba(140,180,255,.6)">Доверие</div>
+    <h2 class="sec-t sec-t-w fade">Нам доверяют лидеры рынка</h2>
+
+    <!-- Реальные клиенты — подтверждены на сайте ukcpoisk.ru -->
+    <div class="proof-clients fade">
+      <div class="pcl">Ашан</div>
+      <div class="pcl">Метро Кэш энд Керри</div>
+      <div class="pcl">Спортмастер</div>
+      <div class="pcl">Макдональдс</div>
+      <div class="pcl">ТД ЦУМ</div>
+      <div class="pcl">Мосмарт</div>
+      <div class="pcl">Виктория</div>
+      <div class="pcl">Тануки</div>
+      <div class="pcl">Якитория</div>
+      <div class="pcl">SELA</div>
+    </div>
+
+    <!-- Отзывы + Лицензии рядом -->
+    <div class="proof-body">
+      <div class="rv-g">
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Работаем 8 лет. При внеплановой проверке ГИТ инспектор не нашёл ни одного нарушения. Это не случайность — это система.»</div><div class="rv-auth"><div class="rv-av">АК</div><div class="rv-nm"><strong>Андрей Козлов</strong><span>Директор по безопасности · машиностроительный завод, Москва, 850 сотрудников</span></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«СОУТ на 200+ рабочих мест — 3 недели, сдача в Роструд без замечаний. Единственный подрядчик, которому доверяю.»</div><div class="rv-auth"><div class="rv-av">НВ</div><div class="rv-nm"><strong>Наталья Воронова</strong><span>Специалист по ОТ · торговая сеть, 200 магазинов</span></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Весь персонал дистанционно, без отрыва. Удостоверения в срок. Важно когда у тебя 600 человек в 6 городах.»</div><div class="rv-auth"><div class="rv-av">МС</div><div class="rv-nm"><strong>Михаил Самойлов</strong><span>HR-директор · IT-компания, Москва, 600 сотрудников</span></div></div></div>
+      </div>
+
+      <!-- Лицензии -->
+      <div class="proof-lic fade">
+        <div class="proof-lic-title">Лицензии и аккредитации</div>
+        <div class="lic-row"><div class="lic-chk">✓</div><div><div class="lic-t">Лицензия Минобрнауки РФ</div><div class="lic-s">Образовательная деятельность — все направления</div></div></div>
+        <div class="lic-row"><div class="lic-chk">✓</div><div><div class="lic-t">Аттестат аккредитации ИЛ</div><div class="lic-s">Испытательная лаборатория СОУТ и производственного контроля</div></div></div>
+        <div class="lic-row"><div class="lic-chk">✓</div><div><div class="lic-t">Реестр Правительства Москвы</div><div class="lic-s">Портал поставщиков — верифицированный партнёр</div></div></div>
+        <div class="lic-row"><div class="lic-chk">✓</div><div><div class="lic-t">Электроизмерительная лаборатория</div><div class="lic-s">Свидетельство об аккредитации — Ростехнадзор</div></div></div>
+        <div class="dir-card">
+          <div class="dir-n">Матвеева Софья Романовна</div>
+          <div class="dir-t">Генеральный директор · Доктор экономических наук<br>Почётный работник торговли и сферы услуг г. Москвы</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA после доверия -->
+    <div class="proof-cta fade">
+      <p>Присоединяйтесь к 27 000+ компаниям, которые доверяют безопасность профессионалам</p>
+      <a href="#cta" class="btn btn-lg btn-white">Получить консультацию бесплатно →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     4. FAQ
+════════════════════════════════════════ -->
+<section class="faq-sec" id="faq">
+  <div class="si">
+    <div class="faq-hd fade">
+      <div class="sec-ey">Частые вопросы</div>
+      <h2 class="sec-t">Отвечаем на главные<br>сомнения</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item fade">
+        <summary class="faq-q">Чем аутсорсинг отличается от штатного специалиста?</summary>
+        <div class="faq-a">Штатный специалист — это зарплата, налоги, отпуск, больничный и риск, что он уйдёт перед проверкой. Аутсорсинг — фиксированная стоимость, команда из нескольких специалистов и полная ответственность по договору. При средней зарплате специалиста 80 000 ₽ экономия составляет 30–50% с учётом всех затрат.</div>
+      </details>
+      <details class="faq-item fade">
+        <summary class="faq-q">Что будет, если нас проверят в период работы с вами?</summary>
+        <div class="faq-a">Наш специалист участвует в проверке лично — сопровождает инспектора, отвечает на вопросы, предоставляет документы. За 37 лет работы мы накопили большой опыт прохождения проверок ГИТ, МЧС и Ростехнадзора и знаем, на что инспекторы обращают внимание в первую очередь.</div>
+      </details>
+      <details class="faq-item fade">
+        <summary class="faq-q">Работаете ли вы за пределами Москвы?</summary>
+        <div class="faq-a">Да. Работаем по всей России — выездные бригады, агентские договоры с партнёрами в регионах, возможность открытия филиалов. Позвоните — уточним варианты для вашего региона.</div>
+      </details>
+      <details class="faq-item fade">
+        <summary class="faq-q">Какова минимальная стоимость ваших услуг?</summary>
+        <div class="faq-a">Аутсорсинг охраны труда — от 18 000 ₽/месяц. Обучение — от 4 200 ₽ за человека. СОУТ — рассчитывается индивидуально исходя из числа рабочих мест. Полный прайс на странице <a href="prices.html">Цены</a>. Точная стоимость зависит от численности сотрудников и объёма задач — рассчитаем бесплатно.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     5. CTA + КОНТАКТЫ
+════════════════════════════════════════ -->
+<section class="cta-sec" id="cta">
+  <div class="cta-ring" style="width:600px;height:600px;top:-250px;left:-150px"></div>
+  <div class="cta-ring" style="width:350px;height:350px;bottom:-120px;right:5%"></div>
+  <div class="cta-i">
+    <div class="cta-ey">Бесплатная консультация</div>
+    <h2 class="cta-h">Обсудим вашу ситуацию<br>и найдём решение</h2>
+    <p class="cta-sub">Оставьте заявку — эксперт перезвонит в течение 30 минут и предложит решение. Без давления и навязывания.</p>
+
+    <div class="cta-body">
+
+      <!-- Форма -->
+      <form class="cta-form" onsubmit="return false">
+        <div class="cta-form-row">
+          <div class="cta-field">
+            <label>Ваше имя</label>
+            <input type="text" placeholder="Иван Иванов">
+          </div>
+          <div class="cta-field">
+            <label>Телефон *</label>
+            <input type="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+        </div>
+        <div class="cta-field">
+          <label>Интересующая услуга</label>
+          <select>
+            <option value="">Выберите (необязательно)</option>
+            <option>Охрана труда / аутсорсинг</option>
+            <option>Спецоценка (СОУТ)</option>
+            <option>Обучение персонала</option>
+            <option>Пожарная безопасность</option>
+            <option>Электробезопасность</option>
+            <option>Электроизмерительная лаборатория</option>
+            <option>Производственный контроль</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <button type="submit" class="cta-submit">Жду звонка →</button>
+        <p class="cta-privacy">🔒 Данные не передаются третьим лицам. Перезвоним в рабочее время.</p>
+      </form>
+
+      <!-- Альтернативный способ связи -->
+      <div class="cta-alt">
+        <div class="cta-alt-label">Или свяжитесь напрямую:</div>
+        <a href="tel:+74957846316" class="cta-alt-phone">+7 (495) 784-63-16</a>
+        <a href="mailto:info@ukcpoisk.ru" class="cta-alt-email">info@ukcpoisk.ru</a>
+        <div class="cta-gs">
+          <span class="cta-g">Ответим за 30 минут</span>
+          <span class="cta-g">Без навязывания</span>
+          <span class="cta-g">Конфиденциально</span>
+          <span class="cta-g">37 лет на рынке безопасности</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Контакты встроены в CTA -->
+    <div class="cta-contacts" id="contacts">
+      <div class="cta-contact-card">
+        <div class="cta-contact-ico">📞</div>
+        <div class="cta-contact-label">Телефон</div>
+        <a href="tel:+74957846316" class="cta-contact-val">+7 (495) 784-63-16</a>
+      </div>
+      <div class="cta-contact-card">
+        <div class="cta-contact-ico">✉️</div>
+        <div class="cta-contact-label">E-mail</div>
+        <a href="mailto:info@ukcpoisk.ru" class="cta-contact-val">info@ukcpoisk.ru</a>
+      </div>
+      <div class="cta-contact-card">
+        <div class="cta-contact-ico">🕐</div>
+        <div class="cta-contact-label">Режим работы</div>
+        <div class="cta-contact-val">Пн–Чт: 9:30–17:00</div>
+        <div class="cta-contact-sub">Пт: 9:30–16:00 · Сб–Вс: выходной</div>
+      </div>
+      <div class="cta-contact-card">
+        <div class="cta-contact-ico">📍</div>
+        <div class="cta-contact-label">Адрес</div>
+        <div class="cta-contact-val">Москва, 1-й Автозаводский пр-д, д.4, к.1</div>
+        <div class="cta-contact-sub">м. Автозаводская</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-i">
+    <div class="ft-top">
+      <div>
+        <img src="logo (1).png" alt="ГК ПОИСК" style="height:36px;width:auto;display:block;filter:brightness(0) invert(1);">
+        <p class="ft-desc">37+ лет помогаем бизнесу работать безопасно и без штрафов. 30 000+ клиентов по всей России.</p>
+        <div class="ft-phone">+7 (495) 784-63-16</div>
+        <div class="ft-mail">info@ukcpoisk.ru · Пн–Пт 9:30–17:00</div>
+        <div class="ft-mail">м. Автозаводская, 1-й Автозаводский пр-д, д.4, к.1</div>
+      </div>
+      <div class="ft-col">
+        <h5>Услуги</h5>
+        <a href="#services">Охрана труда</a>
+        <a href="#services">СОУТ</a>
+        <a href="#services">Производственный контроль</a>
+        <a href="#services">Пожарная безопасность</a>
+        <a href="#services">Электробезопасность</a>
+      </div>
+      <div class="ft-col">
+        <h5>Компания</h5>
+        <a href="about.html">О нас</a>
+        <a href="seminars.html">Семинары</a>
+        <a href="prices.html">Цены</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="ft-col">
+        <h5>Связаться</h5>
+        <a href="tel:+74957846316">+7 (495) 784-63-16</a>
+        <a href="mailto:info@ukcpoisk.ru">info@ukcpoisk.ru</a>
+        <a href="#">Политика персональных данных</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 1988–2026 Группа Компаний «Поиск». Все права защищены.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV HAMBURGER
+const ham = document.getElementById('nav-ham');
+const navLinks = document.getElementById('nav-links');
+ham.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  ham.classList.toggle('open');
+});
+document.querySelectorAll('#nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    ham.classList.remove('open');
+  });
+});
+
+// CHIPS (только на десктопе)
+const SVCS=[
+  {ico:'🛡',name:'Охрана труда',tag:'Обязательно',tc:'#E65100'},
+  {ico:'🔬',name:'СОУТ',tag:'Обязательно',tc:'#C62828'},
+  {ico:'🔥',name:'Пожарная безопасность',tag:'МЧС',tc:'#C62828'},
+  {ico:'⚡',name:'Электробезопасность',tag:'Ростехнадзор',tc:'#1565C0'},
+  {ico:'🧪',name:'Электролаборатория',tag:'Лаборатория',tc:'#6A1B9A'},
+  {ico:'🎓',name:'Обучение персонала',tag:'Популярное',tc:'#2E7D32'},
+  {ico:'📊',name:'Производственный контроль',tag:'Санитарный',tc:'#00695C'},
+  {ico:'🌿',name:'Экологическая безопасность',tag:'Нормативы',tc:'#2E7D32'},
+  {ico:'💻',name:'Дистанционное обучение',tag:'Онлайн',tc:'#1565C0'},
+  {ico:'⚖',name:'Юридические услуги',tag:'Только у нас',tc:'#4527A0'},
+];
+const hero=document.getElementById('hero');
+const root=document.getElementById('chips-root');
+const lc=document.getElementById('lines-c');
+const lx=lc.getContext('2d');
+const chips=[];
+
+function W(){return hero.offsetWidth}
+function H(){return hero.offsetHeight}
+
+function scatter(){
+  const pos=[],minX=W()*.44,maxX=W()-40,minY=56,maxY=H()-48,minD=130;
+  SVCS.forEach((_,i)=>{
+    let p,t=0;
+    do{p={x:minX+Math.random()*(maxX-minX),y:minY+Math.random()*(maxY-minY)};t++;}
+    while(t<400&&pos.some(q=>Math.hypot(q.x-p.x,q.y-p.y)<minD));
+    pos.push(p);
+  });return pos;
+}
+
+function build(){
+  root.innerHTML='';chips.length=0;
+  lc.width=W();lc.height=H();
+  const pos=scatter();
+  SVCS.forEach((s,i)=>{
+    const el=document.createElement('div');
+    el.className='chip';
+    el.innerHTML=`<div class="chip-inner"><div class="chip-ico">${s.ico}</div><div><div class="chip-name">${s.name}</div><div class="chip-tag" style="color:${s.tc}">${s.tag}</div></div></div>`;
+    root.appendChild(el);
+    chips.push({el,bx:pos[i].x,by:pos[i].y,ph:Math.random()*Math.PI*2,ph2:Math.random()*Math.PI*2,ax:8+Math.random()*14,ay:6+Math.random()*12,sp:.25+Math.random()*.35});
+  });
+}
+
+function drawLines(positions){
+  lc.width=W();lc.height=H();
+  lx.clearRect(0,0,lc.width,lc.height);
+  for(let i=0;i<positions.length;i++){
+    for(let j=i+1;j<positions.length;j++){
+      const d=Math.hypot(positions[i].x-positions[j].x,positions[i].y-positions[j].y);
+      if(d>220)continue;
+      lx.beginPath();lx.moveTo(positions[i].x,positions[i].y);lx.lineTo(positions[j].x,positions[j].y);
+      lx.strokeStyle=`rgba(21,87,192,${(1-d/220)*.1})`;lx.lineWidth=1;lx.stroke();
+    }
+  }
+}
+
+function animate(t){
+  requestAnimationFrame(animate);
+  const ts=t/1000,cur=[];
+  chips.forEach(c=>{
+    const x=c.bx+Math.sin(ts*c.sp+c.ph)*c.ax;
+    const y=c.by+Math.cos(ts*c.sp+c.ph2)*c.ay;
+    c.el.style.left=x+'px';c.el.style.top=y+'px';
+    cur.push({x,y});
+  });
+  drawLines(cur);
+}
+
+if(window.innerWidth > 768){
+  build();
+  requestAnimationFrame(animate);
+}
+window.addEventListener('resize',()=>{
+  if(window.innerWidth > 768){ lc.width=W();lc.height=H();build(); }
+  else { root.innerHTML=''; lx.clearRect(0,0,lc.width,lc.height); }
+});
+
+// PAIN CARD → HIGHLIGHT TARGET SERVICE
+document.querySelectorAll('.pain-g a.pc').forEach(link => {
+  link.addEventListener('click', e => {
+    const targetId = link.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    e.preventDefault();
+
+    // Scroll to card with nav offset
+    const top = target.getBoundingClientRect().top + window.scrollY - 90;
+    window.scrollTo({ top, behavior: 'smooth' });
+
+    // Restart animation (remove then re-add to allow repeat clicks)
+    target.classList.remove('sv-highlight');
+    void target.offsetWidth;
+    target.classList.add('sv-highlight');
+    setTimeout(() => target.classList.remove('sv-highlight'), 5000);
+  });
+});
+
+// SCROLL FADE
+const obs=new IntersectionObserver(e=>{
+  e.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); });
+},{threshold:.08});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

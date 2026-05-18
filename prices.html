@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Цены — ГК ПОИСК</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="prices.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-i">
+    <a href="poisk_landing.html" class="logo">
+      <img src="logo (1).png" alt="ГК ПОИСК" style="height:40px;width:auto;display:block;">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="poisk_landing.html#services">Услуги</a>
+      <a href="poisk_landing.html#why">О компании</a>
+      <a href="poisk_landing.html#seminars">Семинары</a>
+      <a href="prices.html" class="active">Цены</a>
+      <a href="poisk_landing.html#cta">Контакты</a>
+    </div>
+    <div class="nav-r">
+      <a href="tel:+74957846316" class="nav-phone">+7 (495) 784-63-16</a>
+      <a href="poisk_landing.html#cta" class="btn">Консультация →</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="p-hero">
+  <div class="p-hero-i">
+    <div class="breadcrumb">
+      <a href="poisk_landing.html">Главная</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.6)">Цены</span>
+    </div>
+    <h1 class="p-hero-h">Цены на услуги</h1>
+    <p class="p-hero-s">Прозрачное ценообразование без скрытых условий. Точная стоимость рассчитывается индивидуально после бесплатного аудита вашего предприятия.</p>
+    <div class="p-hero-cta">
+      <a href="poisk_landing.html#cta" class="btn" style="padding:13px 26px;font-size:14px">Получить расчёт бесплатно →</a>
+      <span class="price-note">Ответим в течение 30 минут</span>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH + FILTER -->
+<div class="search-bar">
+  <div class="search-i">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Поиск по услугам и программам...">
+    </div>
+    <div class="filter-tabs">
+      <button class="ftab on" onclick="filterAll(this)">Все</button>
+      <button class="ftab" onclick="filterCat('ot',this)">Охрана труда</button>
+      <button class="ftab" onclick="filterCat('fire',this)">Пожарная безоп.</button>
+      <button class="ftab" onclick="filterCat('elec',this)">Электробезоп.</button>
+      <button class="ftab" onclick="filterCat('eco',this)">Экология</button>
+      <button class="ftab" onclick="filterCat('prom',this)">Пром. безоп.</button>
+      <button class="ftab" onclick="filterCat('lab',this)">Лаборатория</button>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="p-body">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sb-head">Разделы</div>
+    <a href="#ot"    class="sb-link active"><span class="sb-ico">🛡</span>Охрана труда</a>
+    <a href="#fire"  class="sb-link"><span class="sb-ico">🔥</span>Пожарная безопасность</a>
+    <a href="#first" class="sb-link"><span class="sb-ico">🩺</span>Первая помощь</a>
+    <a href="#go"    class="sb-link"><span class="sb-ico">🚨</span>Гражданская оборона</a>
+    <a href="#anti"  class="sb-link"><span class="sb-ico">🔒</span>Антитеррор. защищённость</a>
+    <a href="#elec"  class="sb-link"><span class="sb-ico">⚡</span>Электробезопасность</a>
+    <a href="#heat"  class="sb-link"><span class="sb-ico">🌡</span>Тепловые энергоустановки</a>
+    <a href="#lift"  class="sb-link"><span class="sb-ico">🛗</span>Лифты и эскалаторы</a>
+    <a href="#eco"   class="sb-link"><span class="sb-ico">🌿</span>Экологическая безоп.</a>
+    <a href="#pk"    class="sb-link"><span class="sb-ico">📊</span>Производственный контроль</a>
+    <a href="#road"  class="sb-link"><span class="sb-ico">🚗</span>Безопасность дорожного движения</a>
+    <a href="#press" class="sb-link"><span class="sb-ico">⚙</span>Оборудование под давлением</a>
+    <a href="#prom"  class="sb-link"><span class="sb-ico">🏭</span>Промышленная безопасность</a>
+    <a href="#lab"   class="sb-link"><span class="sb-ico">🧪</span>Электролаборатория</a>
+    <div class="sb-cta">
+      <div class="sb-cta-h">Нужен точный расчёт?</div>
+      <div class="sb-cta-p">Стоимость зависит от количества сотрудников и специфики предприятия.</div>
+      <a href="poisk_landing.html#cta" class="btn" style="width:100%;justify-content:center;font-size:12px;padding:9px">Получить КП →</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="priceContent">
+
+    <!-- ОХРАНА ТРУДА -->
+    <div class="p-section fade" id="ot" data-cat="ot">
+      <div class="ps-head">
+        <div class="ps-ico">🛡️</div>
+        <div><div class="ps-title">Охрана труда</div><div class="ps-desc">Обучение, аудит, аутсорсинг службы ОТ</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row" data-cat="ot"><td>Общие вопросы ОТ и СУОТ</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Безопасные методы при воздействии вредных факторов (СОУТ/ОПР)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Применение средств индивидуальной защиты</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Оказание первой помощи пострадавшим</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Подготовка преподавателей первой помощи</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 6 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Работы на высоте с применением средств подмащивания (работники)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Работы на высоте — 1 группа (работники)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 6 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Работы на высоте — 2 группа (мастера, бригадиры)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 6 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Работы на высоте — 3 группа (ответственные)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 8 400 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Периодическая проверка знаний — работы на высоте</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 3 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Специалист в области охраны труда</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 20 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Внеочередная проверка знаний (новые правила)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 3 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Обучение членов комиссии СОУТ</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Охрана труда при погрузочно-разгрузочных работах</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Оценка и управление профессиональными рисками</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 6 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Электросварочные и газосварочные работы</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Работы с опасностью поражения электрическим током</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Аудит документации по охране труда</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 18 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Разработка / восстановление документации по ОТ</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 36 000 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Аутсорсинг охраны труда (абонентское обслуживание)</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 18 000 ₽/мес</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Индивидуальная консультация по охране труда</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 3 600 ₽</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Специальная оценка условий труда (СОУТ)</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-ind">Индивидуально</td></tr>
+          <tr class="price-row" data-cat="ot"><td>Оценка (идентификация) профессиональных рисков</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-ind">Индивидуально</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист (Охрана труда)</a>
+    </div>
+
+    <!-- ПОЖАРНАЯ БЕЗОПАСНОСТЬ -->
+    <div class="p-section fade" id="fire" data-cat="fire">
+      <div class="ps-head">
+        <div class="ps-ico">🔥</div>
+        <div><div class="ps-title">Пожарная безопасность</div><div class="ps-desc">Обучение, аудит, документация, декларация</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row" data-cat="fire"><td>Пожарная безопасность — руководители организаций</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Пожарная безопасность — руководители эксплуатирующих организаций</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Пожарная безопасность — объекты с пребыванием 50+ человек / категории повышенной опасности</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Лица, проводящие противопожарный инструктаж</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Специалист по пожарной профилактике</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 20 000 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Подготовка добровольных пожарных дружин</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Аудит документации по пожарной безопасности</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 18 000 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Разработка / восстановление документации по ПБ</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 30 000 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Заполнение пожарной декларации</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 18 000 ₽</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Противопожарное обследование</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-ind">Индивидуально</td></tr>
+          <tr class="price-row" data-cat="fire"><td>Разработка плана действий при ЧС</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-ind">Индивидуально</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист (Пожарная безопасность)</a>
+    </div>
+
+    <!-- ПЕРВАЯ ПОМОЩЬ -->
+    <div class="p-section fade" id="first">
+      <div class="ps-head">
+        <div class="ps-ico">🩺</div>
+        <div><div class="ps-title">Оказание первой помощи</div><div class="ps-desc">Обучение в образовательных учреждениях</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row"><td>Первая помощь учащимся при несчастных случаях в образовательных учреждениях</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 1 200 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ГО -->
+    <div class="p-section fade" id="go">
+      <div class="ps-head">
+        <div class="ps-ico">🚨</div>
+        <div><div class="ps-title">Гражданская оборона</div><div class="ps-desc">Обучение, аудит и разработка документации ГО и ЧС</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row" data-cat="go"><td>Гражданская оборона</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row" data-cat="go"><td>Специалист по гражданской обороне</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 20 000 ₽</td></tr>
+          <tr class="price-row" data-cat="go"><td>Аудит документации по гражданской обороне</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 18 000 ₽</td></tr>
+          <tr class="price-row" data-cat="go"><td>Разработка / восстановление документации по ГО</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 30 000 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- АНТИТЕРРОР -->
+    <div class="p-section fade" id="anti">
+      <div class="ps-head">
+        <div class="ps-ico">🔒</div>
+        <div><div class="ps-title">Антитеррористическая защищённость</div><div class="ps-desc">Обучение для разных типов объектов</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row"><td>Антитеррористическая защищённость объектов (территорий)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Антитеррористическая защищённость образовательной организации</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Антитеррористическая защищённость медицинской организации</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Антитеррористическая защищённость гостиниц</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Антитеррористическая защищённость объектов культуры</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Антитеррористическая защищённость спортивных объектов</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Антитеррористическая защищённость торговых объектов</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Работа со служебной информацией ограниченного распространения</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 6 000 ₽</td></tr>
+          <tr class="price-row"><td>Специалист по антитеррористической защищённости объектов</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 20 000 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ЭЛЕКТРОБЕЗОПАСНОСТЬ -->
+    <div class="p-section fade" id="elec" data-cat="elec">
+      <div class="ps-head">
+        <div class="ps-ico">⚡</div>
+        <div><div class="ps-title">Электробезопасность</div><div class="ps-desc">Обучение, проверка знаний, документация</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row" data-cat="elec"><td>Предэкзаменационная подготовка (III, IV, V группа, до и выше 1000В)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">8 000 ₽</td></tr>
+          <tr class="price-row" data-cat="elec"><td>Обучение и проверка знаний (II, III, IV группа, до и выше 1000В)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">20 000 ₽</td></tr>
+          <tr class="price-row" data-cat="elec"><td>Аудит документации по электробезопасности</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 12 000 ₽</td></tr>
+          <tr class="price-row" data-cat="elec"><td>Разработка / восстановление документации по ЭБ</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-val">от 24 000 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ТЕПЛОВЫЕ -->
+    <div class="p-section fade" id="heat">
+      <div class="ps-head">
+        <div class="ps-ico">🌡</div>
+        <div><div class="ps-title">Тепловые энергоустановки</div><div class="ps-desc">Правила технической эксплуатации</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row"><td>Правила технической эксплуатации объектов теплоснабжения и теплопотребляющих установок</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">20 000 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ЛИФТЫ -->
+    <div class="p-section fade" id="lift">
+      <div class="ps-head">
+        <div class="ps-ico">🛗</div>
+        <div><div class="ps-title">Лифты и эскалаторы</div><div class="ps-desc">Профессиональная подготовка операторов и специалистов</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row"><td>Лифтёр</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row"><td>Специалист, ответственный за организацию эксплуатации лифтов</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 5 400 ₽</td></tr>
+          <tr class="price-row"><td>Оператор по диспетчерскому обслуживанию лифтов</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 6 600 ₽</td></tr>
+          <tr class="price-row"><td>Дежурный у эскалатора</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row"><td>Специалист, ответственный за безопасную эксплуатацию эскалаторов</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 6 000 ₽</td></tr>
+          <tr class="price-row"><td>Оператор платформ подъёмных для инвалидов</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ЭКОЛОГИЯ -->
+    <div class="p-section fade" id="eco" data-cat="eco">
+      <div class="ps-head">
+        <div class="ps-ico">🌿</div>
+        <div><div class="ps-title">Экологическая безопасность</div><div class="ps-desc">Обучение специалистов по экологической безопасности</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row" data-cat="eco"><td>Экологическая безопасность</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 14 500 ₽</td></tr>
+          <tr class="price-row" data-cat="eco"><td>Экологическая безопасность при работах с опасными отходами</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 14 500 ₽</td></tr>
+          <tr class="price-row" data-cat="eco"><td>Специалист по экологической безопасности (юр. лицо)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 24 000 ₽</td></tr>
+          <tr class="price-row" data-cat="eco"><td>Специалист по экологической безопасности (физ. лицо)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 18 000 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ПРОИЗВОДСТВЕННЫЙ КОНТРОЛЬ -->
+    <div class="p-section fade" id="pk">
+      <div class="ps-head">
+        <div class="ps-ico">📊</div>
+        <div><div class="ps-title">Производственный контроль</div><div class="ps-desc">Обучение, лабораторные исследования, программы ПК</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row"><td>Обучение ответственных за производственный контроль</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row"><td>Проведение лабораторных исследований и испытаний</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-ind">Индивидуально</td></tr>
+          <tr class="price-row"><td>Разработка программы производственного контроля</td><td><span class="type-badge tb-svc">Услуга</span></td><td class="price-ind">Индивидуально</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- БЕЗОПАСНОСТЬ ДОРОЖНОГО ДВИЖЕНИЯ -->
+    <div class="p-section fade" id="road">
+      <div class="ps-head">
+        <div class="ps-ico">🚗</div>
+        <div><div class="ps-title">Безопасность дорожного движения</div><div class="ps-desc">Специалисты, диспетчеры, контролёры транспорта</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row"><td>Специалист по безопасности движения на автомобильном транспорте</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 7 200 ₽</td></tr>
+          <tr class="price-row"><td>Ответственный за обеспечение безопасности дорожного движения</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 18 000 ₽</td></tr>
+          <tr class="price-row"><td>Диспетчер автомобильного и городского наземного электрического транспорта</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 18 000 ₽</td></tr>
+          <tr class="price-row"><td>Контролёр технического состояния автотранспортных средств</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 18 000 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ПОД ДАВЛЕНИЕМ -->
+    <div class="p-section fade" id="press">
+      <div class="ps-head">
+        <div class="ps-ico">⚙</div>
+        <div><div class="ps-title">Оборудование, работающее под давлением</div><div class="ps-desc">Первичное и повторное обучение персонала</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row"><td>Персонал, обслуживающий оборудование под давлением (первичное)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 200 ₽</td></tr>
+          <tr class="price-row"><td>Персонал, обслуживающий оборудование под давлением (повторное / ежегодная аттестация)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 3 600 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ПРОМЫШЛЕННАЯ БЕЗОПАСНОСТЬ -->
+    <div class="p-section fade" id="prom" data-cat="prom">
+      <div class="ps-head">
+        <div class="ps-ico">🏭</div>
+        <div><div class="ps-title">Промышленная безопасность</div><div class="ps-desc">Аттестация по требованиям Ростехнадзора (А1, Б-серии)</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row" data-cat="prom"><td>Основы промышленной безопасности (А1)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 9 000 ₽</td></tr>
+          <tr class="price-row" data-cat="prom"><td>А1 + статья (Б-серия)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 4 800 ₽</td></tr>
+          <tr class="price-row" data-cat="prom"><td>Б7.1 — Газораспределение и газопотребление</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 9 000 ₽</td></tr>
+          <tr class="price-row" data-cat="prom"><td>Б8.1 — Котлы (паровые, водогрейные, электрические)</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 9 000 ₽</td></tr>
+          <tr class="price-row" data-cat="prom"><td>Б8.2 — Трубопроводы пара и горячей воды</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 9 000 ₽</td></tr>
+          <tr class="price-row" data-cat="prom"><td>Б8.3 — Сосуды, работающие под избыточным давлением</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 9 000 ₽</td></tr>
+          <tr class="price-row" data-cat="prom"><td>Б9.3 — Эксплуатация подъёмных сооружений</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 9 500 ₽</td></tr>
+          <tr class="price-row" data-cat="prom"><td>Б9.5 — Монтаж, обслуживание, ремонт подъёмных сооружений</td><td><span class="type-badge tb-edu">Обучение</span></td><td class="price-val">от 9 500 ₽</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист</a>
+    </div>
+
+    <!-- ЭЛЕКТРОЛАБОРАТОРИЯ -->
+    <div class="p-section fade" id="lab" data-cat="lab">
+      <div class="ps-head">
+        <div class="ps-ico">🧪</div>
+        <div><div class="ps-title">Электроизмерительная лаборатория</div><div class="ps-desc">Замеры, испытания, тепловизионный контроль</div></div>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table">
+          <tr><th>Наименование</th><th>Тип</th><th>Цена</th></tr>
+          <tr class="price-row" data-cat="lab"><td>Измерение сопротивления заземляющих устройств</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 2 000 ₽/точка</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Проверка наличия цепи между заземлёнными установками</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 60 ₽/точка</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Измерение сопротивления изоляции электрических аппаратов до 1 кВ</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 100 ₽/линия</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Проверка срабатывания защиты при заземлённой нейтрали</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 260 ₽/измерение</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Проверка действия расцепителей автоматических выключателей</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 350 ₽/шт</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Испытания устройств АВР</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 1 200 ₽/устройство</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Испытание / проверка устройств защитного отключения (УЗО)</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 270 ₽/измерение</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Испытание силовых кабельных линий до 1 кВ</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 120 ₽/линия</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Проверка фазировки РУ до 1 кВ</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 500 ₽/шт</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Проверка устройств молниезащиты</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 2 500 ₽/измерение</td></tr>
+          <tr class="price-row" data-cat="lab"><td>Тепловизионный контроль состояния электрооборудования</td><td><span class="type-badge tb-lab">Лаборатория</span></td><td class="price-val">от 4 000 ₽/комплекс</td></tr>
+        </table>
+      </div>
+      <a href="#" class="dl-link">📥 Скачать прайс-лист (Электролаборатория)</a>
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <div class="p-cta fade">
+      <h3>Нужен точный расчёт стоимости?</h3>
+      <p>Стоимость зависит от численности сотрудников, количества рабочих мест и специфики предприятия.<br>Оставьте заявку — рассчитаем и пришлём КП в течение 30 минут.</p>
+      <div class="p-cta-btns">
+        <a href="tel:+74957846316" class="btn btn-white" style="padding:13px 28px;font-size:14px">Получить расчёт бесплатно →</a>
+        <a href="tel:+74957846316" class="btn btn-ghost" style="padding:13px 24px;font-size:14px">+7 (495) 784-63-16</a>
+      </div>
+    </div>
+
+  </div><!-- /priceContent -->
+</div><!-- /p-body -->
+
+<footer>
+  <div class="ft-bot">
+    <div class="ft-copy">© 1988–2026 Группа Компаний «Поиск». Все права защищены.</div>
+    <div class="ft-leg"><a href="#">Политика персональных данных</a></div>
+  </div>
+</footer>
+
+<script>
+// NAV TOGGLE
+document.getElementById('navToggle').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// SEARCH
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  document.querySelectorAll('.price-row').forEach(r => {
+    r.classList.toggle('hidden', q && !r.textContent.toLowerCase().includes(q));
+  });
+  document.querySelectorAll('.p-section').forEach(s => {
+    const visible = [...s.querySelectorAll('.price-row')].filter(r => !r.classList.contains('hidden'));
+    s.style.display = (q && visible.length === 0) ? 'none' : '';
+  });
+});
+
+// FILTER TABS
+function filterAll(el) {
+  document.querySelectorAll('.price-row').forEach(r => r.classList.remove('hidden'));
+  document.querySelectorAll('.p-section').forEach(s => s.style.display = '');
+  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+}
+function filterCat(cat, el) {
+  document.querySelectorAll('.price-row').forEach(r => {
+    r.classList.toggle('hidden', r.dataset.cat !== cat);
+  });
+  document.querySelectorAll('.p-section').forEach(s => {
+    const hasRows = [...s.querySelectorAll(`.price-row[data-cat="${cat}"]`)].length > 0;
+    s.style.display = (s.dataset.cat === cat || hasRows) ? '' : 'none';
+  });
+  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+}
+window.filterAll = filterAll;
+window.filterCat = filterCat;
+
+// SIDEBAR ACTIVE ON SCROLL
+const sections = document.querySelectorAll('.p-section[id]');
+const sbLinks = document.querySelectorAll('.sb-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (s.getBoundingClientRect().top < 200) current = s.id; });
+  sbLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+}, { passive: true });
+
+// ACTIVATE FILTER + SCROLL FROM URL HASH (for links from other pages)
+(function() {
+  const hash = window.location.hash.slice(1);
+  if (!hash) return;
+
+  // Map landing-page anchors to price filter categories
+  const catMap = { ot: 'ot', sout: 'ot', fire: 'fire', elec: 'elec', lab: 'lab', eco: 'eco', prom: 'prom' };
+  const cat = catMap[hash];
+
+  if (cat) {
+    const btn = [...document.querySelectorAll('.ftab')].find(b =>
+      (b.getAttribute('onclick') || '').includes(`'${cat}'`)
+    );
+    if (btn) filterCat(cat, btn);
+  }
+
+  // Scroll to the target section after filter is applied
+  requestAnimationFrame(() => {
+    const target = document.getElementById(hash) || document.getElementById(catMap[hash]);
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+})();
+
+// SCROLL FADE
+const obs = new IntersectionObserver(
+  e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); }),
+  { threshold: .08 }
+);
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

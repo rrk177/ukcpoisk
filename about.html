@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>О компании — ГК ПОИСК</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="poisk_landing.css">
+<style>
+  /* STATS STRIP */
+  .about-strip { background: var(--blue); display: flex; justify-content: center; }
+  .astrip-item { padding: 1.6rem 3.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,.12); }
+  .astrip-item:last-child { border: none; }
+  .astrip-n { font-family: 'Unbounded', sans-serif; font-size: 1.9rem; font-weight: 900; color: white; line-height: 1; }
+  .astrip-n em { color: var(--ice4); font-style: normal; }
+  .astrip-l { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 5px; }
+
+  /* COOPERATION */
+  .coop-sec { background: var(--off); padding: 5rem 2.5rem; border-top: 1px solid var(--border); }
+  .coop-i { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .coop-i .sec-t { margin-bottom: 1.5rem; }
+  .coop-txt p { font-size: 14px; color: var(--mid); line-height: 1.85; margin-bottom: 1.2rem; }
+  .coop-offer-title { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); margin: 2rem 0 .75rem; }
+  .coop-contacts { background: var(--ice); border: 1px solid var(--border2); border-radius: var(--r2); padding: 1.5rem 1.75rem; margin-top: 2rem; }
+  .coop-contacts p { font-size: 13px; color: var(--mid); line-height: 1.75; }
+  .coop-contacts .ct-phone { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue); margin-top: .65rem; }
+  .coop-contacts .ct-note { font-size: 12px; color: var(--muted); margin-top: .65rem; }
+  .coop-cta { margin-top: 2.25rem; }
+
+  /* CLIENTS */
+  .clients-box { background: white; border: 1px solid var(--border); border-radius: var(--r2); padding: 2rem; }
+  .clients-eye { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.1rem; }
+  .client-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+  .client-pill { background: var(--off); border: 1.5px solid var(--border2); border-radius: 8px; padding: 8px 15px; font-size: 12px; font-weight: 700; color: var(--mid); transition: border-color .2s, color .2s; cursor: default; }
+  .client-pill:hover { border-color: var(--blue); color: var(--blue); }
+  .clients-note { font-size: 12px; color: var(--faint); font-style: italic; }
+  .clients-industries { margin-top: 1.75rem; }
+  .clients-eye2 { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: .85rem; }
+  .ind-pills { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .ind-pill { background: var(--ice); border: 1px solid var(--ice3); border-radius: 6px; padding: 5px 11px; font-size: 11px; font-weight: 600; color: var(--blue); }
+
+  /* SPECIALISTS */
+  .spec-sec { background: white; padding: 5rem 2.5rem; border-top: 1px solid var(--border); }
+  .spec-si { max-width: 1280px; margin: 0 auto; }
+  .spec-hd { margin-bottom: 2.5rem; }
+  .spec-g { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
+  .spec-c { background: var(--off); border: 1px solid var(--border); border-radius: var(--r2); padding: 2rem 1.5rem; text-align: center; transition: box-shadow .25s, transform .25s; }
+  .spec-c:hover { box-shadow: var(--sh2); transform: translateY(-4px); }
+  .spec-av { width: 72px; height: 72px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; color: white; margin: 0 auto 1.1rem; }
+  .spec-nm { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.4; }
+  .spec-ti { font-size: 11px; color: var(--muted); line-height: 1.65; }
+
+  @media (max-width: 900px) {
+    .coop-i { grid-template-columns: 1fr; gap: 2.5rem; }
+    .spec-g { grid-template-columns: repeat(2, 1fr); }
+    .astrip-item { padding: 1.2rem 1.5rem; }
+  }
+  @media (max-width: 560px) {
+    .spec-g { grid-template-columns: 1fr; }
+    .about-strip { flex-direction: column; }
+    .astrip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.12); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-i">
+    <a href="poisk_landing.html" class="logo">
+      <img src="logo (1).png" alt="ГК ПОИСК" style="height:40px;width:auto;display:block;">
+    </a>
+    <div class="nav-links">
+      <a href="poisk_landing.html#services">Услуги</a>
+      <a href="about.html" class="nav-active">О компании</a>
+      <a href="seminars.html">Семинары</a>
+      <a href="prices.html">Цены</a>
+      <a href="poisk_landing.html#contacts">Контакты</a>
+    </div>
+    <div class="nav-r">
+      <a href="tel:+74957846316" class="nav-phone">+7 (495) 784-63-16</a>
+      <a href="poisk_landing.html#cta" class="btn">Консультация →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero page-hero--centered">
+  <div class="page-hero-inner">
+    <div class="page-hero-eye">О компании</div>
+    <h1 class="page-hero-h">Сотрудничество</h1>
+    <p class="page-hero-sub">Группа компаний «Поиск» всегда заинтересована в новых партнерах. Если Вы считаете, что мы можем быть полезны друг другу — пожалуйста, свяжитесь с нами.</p>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="about-strip">
+  <div class="astrip-item">
+    <div class="astrip-n">30<em>+</em></div>
+    <div class="astrip-l">лет опыта работы</div>
+  </div>
+  <div class="astrip-item">
+    <div class="astrip-n">70<em>+</em></div>
+    <div class="astrip-l">постоянных клиентов</div>
+  </div>
+  <div class="astrip-item">
+    <div class="astrip-n">40<em>+</em></div>
+    <div class="astrip-l">видов услуг</div>
+  </div>
+</div>
+
+<!-- COOPERATION -->
+<section class="coop-sec">
+  <div class="coop-i">
+
+    <div class="coop-txt fade">
+      <div class="sec-ey">Региональное партнёрство</div>
+      <h2 class="sec-t">Работаем по всей России</h2>
+
+      <p>Востребованность услуг в сфере охраны труда, пожарной безопасности, энергосбережения и других направлениях деятельности компании есть не только в Москве, но и в других городах и регионах нашей страны.</p>
+      <p>Может оказаться, что Вы столкнулись с необходимостью проведения комплекса мероприятий в области охраны труда, пожарной безопасности, электробезопасности.</p>
+
+      <div class="coop-offer-title">Что мы предлагаем?</div>
+      <p>Формы сотрудничества Компании и регионов могут включать в себя партнерские соглашения в рамках заключенных агентских договоров, также может рассматриваться возможность открытия филиалов по необходимым и актуальным направлениям.</p>
+
+      <div class="coop-contacts">
+        <p>По вопросам сотрудничества в вашем регионе обращайтесь за контактной информацией в головной офис, расположенный в Москве, по телефонам:</p>
+        <div class="ct-phone">+7 (495) 784-63-16 · 710-30-49, 51, 52, 54</div>
+        <p class="ct-note">На сайте Вы найдёте полный перечень предоставляемых нами услуг с указанием стоимости.</p>
+      </div>
+
+      <div class="coop-cta">
+        <a href="poisk_landing.html#cta" class="btn btn-lg">Оставить заявку →</a>
+      </div>
+    </div>
+
+    <div class="fade">
+      <div class="clients-box">
+        <div class="clients-eye">Среди наших постоянных клиентов</div>
+        <div class="client-pills">
+          <span class="client-pill">Ашан</span>
+          <span class="client-pill">Метро Кэш энд Керри</span>
+          <span class="client-pill">Мосмарт</span>
+          <span class="client-pill">Макдональдс</span>
+          <span class="client-pill">Виктория</span>
+          <span class="client-pill">Спортмастер</span>
+          <span class="client-pill">ТД ЦУМ</span>
+          <span class="client-pill">Тануки</span>
+          <span class="client-pill">Якитория</span>
+          <span class="client-pill">SELA</span>
+        </div>
+        <p class="clients-note">и многие другие известные компании федерального масштаба.</p>
+        <div class="clients-industries">
+          <div class="clients-eye2">Отрасли</div>
+          <div class="ind-pills">
+            <span class="ind-pill">Торговые сети</span>
+            <span class="ind-pill">Общепит</span>
+            <span class="ind-pill">Производство</span>
+            <span class="ind-pill">Логистика</span>
+            <span class="ind-pill">IT-компании</span>
+            <span class="ind-pill">Здравоохранение</span>
+            <span class="ind-pill">Образование</span>
+            <span class="ind-pill">ЖКХ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPECIALISTS -->
+<section class="spec-sec">
+  <div class="spec-si">
+    <div class="spec-hd fade">
+      <div class="sec-ey">Команда</div>
+      <h2 class="sec-t">Наши специалисты</h2>
+    </div>
+    <div class="spec-g">
+      <div class="spec-c fade">
+        <div class="spec-av">ГР</div>
+        <div class="spec-nm">Гиматдинов<br>Ринат Ривкатович</div>
+        <div class="spec-ti">Заместитель генерального директора ГК «Поиск»</div>
+      </div>
+      <div class="spec-c fade">
+        <div class="spec-av">МЕ</div>
+        <div class="spec-nm">Матвеев<br>Евгений Александрович</div>
+        <div class="spec-ti">Заместитель генерального директора ГК «Поиск»</div>
+      </div>
+      <div class="spec-c fade">
+        <div class="spec-av">ЖС</div>
+        <div class="spec-nm">Жаркова<br>Светлана Юрьевна</div>
+        <div class="spec-ti">Руководитель юридического отдела ГК «Поиск»</div>
+      </div>
+      <div class="spec-c fade">
+        <div class="spec-av">ЧВ</div>
+        <div class="spec-nm">Чалов<br>Владимир Викторович</div>
+        <div class="spec-ti">Преподаватель Центра повышения квалификации «Поиск»</div>
+      </div>
+      <div class="spec-c fade">
+        <div class="spec-av">ЖГ</div>
+        <div class="spec-nm">Жаркова<br>Галина Николаевна</div>
+        <div class="spec-ti">Преподаватель Центра повышения квалификации «Поиск»</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-i">
+    <div class="ft-top">
+      <div>
+        <img src="logo (1).png" alt="ГК ПОИСК" style="height:36px;width:auto;display:block;filter:brightness(0) invert(1);">
+        <p class="ft-desc">37+ лет помогаем бизнесу работать безопасно и без штрафов. 30 000+ клиентов по всей России.</p>
+        <div class="ft-phone">+7 (495) 784-63-16</div>
+        <div class="ft-mail">info@ukcpoisk.ru · Пн–Пт 9:30–17:00</div>
+        <div class="ft-mail">м. Автозаводская, 1-й Автозаводский пр-д, д.4, к.1</div>
+      </div>
+      <div class="ft-col">
+        <h5>Услуги</h5>
+        <a href="poisk_landing.html#services">Охрана труда</a>
+        <a href="poisk_landing.html#services">СОУТ</a>
+        <a href="poisk_landing.html#services">Производственный контроль</a>
+        <a href="poisk_landing.html#services">Пожарная безопасность</a>
+        <a href="poisk_landing.html#services">Электробезопасность</a>
+      </div>
+      <div class="ft-col">
+        <h5>Обучение</h5>
+        <a href="#">Очное</a>
+        <a href="#">Дистанционное</a>
+        <a href="seminars.html">Семинары</a>
+        <a href="#">Расписание</a>
+        <a href="#">Программы</a>
+      </div>
+      <div class="ft-col">
+        <h5>Компания</h5>
+        <a href="about.html">О нас</a>
+        <a href="poisk_landing.html#why">Лицензии</a>
+        <a href="about.html">Клиенты</a>
+        <a href="prices.html">Цены</a>
+        <a href="poisk_landing.html#contacts">Контакты</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 1988–2026 Группа Компаний «Поиск». Все права защищены.</div>
+      <div class="ft-leg"><a href="#">Политика персональных данных</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e => {
+  e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+}, { threshold: .1 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
