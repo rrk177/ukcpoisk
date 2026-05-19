@@ -145,9 +145,16 @@
     <!-- Отзывы + Лицензии рядом -->
     <div class="proof-body">
       <div class="rv-g">
-        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Работаем 8 лет. При внеплановой проверке ГИТ инспектор не нашёл ни одного нарушения. Это не случайность — это система.»</div><div class="rv-auth"><div class="rv-av">АК</div><div class="rv-nm"><strong>Андрей Козлов</strong><span>Директор по безопасности · машиностроительный завод, Москва, 850 сотрудников</span></div></div></div>
-        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«СОУТ на 200+ рабочих мест — 3 недели, сдача в Роструд без замечаний. Единственный подрядчик, которому доверяю.»</div><div class="rv-auth"><div class="rv-av">НВ</div><div class="rv-nm"><strong>Наталья Воронова</strong><span>Специалист по ОТ · торговая сеть, 200 магазинов</span></div></div></div>
-        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Весь персонал дистанционно, без отрыва. Удостоверения в срок. Важно когда у тебя 600 человек в 6 городах.»</div><div class="rv-auth"><div class="rv-av">МС</div><div class="rv-nm"><strong>Михаил Самойлов</strong><span>HR-директор · IT-компания, Москва, 600 сотрудников</span></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Спасибо за профессионализм в подходе обучения наших сотрудников. Очень нравится оперативность.»</div><div class="rv-auth"><div class="rv-av">ИЗ</div><div class="rv-nm"><strong>Игорь З.</strong><div class="rv-date">2 апреля 2024 · Яндекс Карты</div></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«ГК Поиск самая надёжная компания, предоставляет разносторонние услуги в области ОТ и промышленной безопасности.»</div><div class="rv-auth"><div class="rv-av">АГ</div><div class="rv-nm"><strong>Алла Гончарова</strong><div class="rv-date">2 апреля 2024 · Яндекс Карты</div></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Заказывали СОУТ. Сделали быстро. Спецы приехали в срок, отчёт понятный.»</div><div class="rv-auth"><div class="rv-av">АЛ</div><div class="rv-nm"><strong>Александр Липатников</strong><div class="rv-date">28 сентября 2025 · Яндекс Карты</div></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Сделали полный аутсорсинг охраны труда. Работа выполнена на самом высоком уровне.»</div><div class="rv-auth"><div class="rv-av">КШ</div><div class="rv-nm"><strong>Карина Шацкая</strong><div class="rv-date">3 февраля 2024 · Яндекс Карты</div></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Работаем третий год. Всегда оперативно и сервис на 5+. Ни разу не подвели.»</div><div class="rv-auth"><div class="rv-av">ДК</div><div class="rv-nm"><strong>Динара Кучина</strong><div class="rv-date">1 ноября 2025 · Яндекс Карты</div></div></div></div>
+        <div class="rv fade"><div class="rv-stars">★★★★★</div><div class="rv-q">«Нужно было срочно обучить по электробезопасности. Оперативно заключили договор, всё прошло чётко.»</div><div class="rv-auth"><div class="rv-av">АП</div><div class="rv-nm"><strong>Алексей Пархоменко</strong><div class="rv-date">29 июня 2024 · Яндекс Карты</div></div></div></div>
+      </div>
+      <div class="rv-source fade">
+        <span class="rv-source-badge">🗺 Яндекс Карты</span>
+        <span class="rv-source-text">Реальные отзывы клиентов — 4,6 ★ · 50+ отзывов</span>
       </div>
 
       <!-- Лицензии -->
@@ -327,6 +334,32 @@
   </div>
 </footer>
 
+<!-- SERVICE MODAL -->
+<div class="svc-modal-overlay" id="svc-modal">
+  <div class="svc-modal-box">
+    <button class="svc-modal-close" id="modal-close">✕</button>
+    <div class="svc-modal-header">
+      <div class="svc-modal-ico-wrap" id="modal-ico"></div>
+      <div class="svc-modal-htxt">
+        <div class="svc-modal-title" id="modal-title"></div>
+        <div class="svc-modal-badge" id="modal-badge"></div>
+      </div>
+    </div>
+    <div class="svc-modal-risk" id="modal-risk"></div>
+    <div class="svc-modal-section-label">Что входит в услугу</div>
+    <ul class="svc-modal-list" id="modal-list"></ul>
+    <div class="svc-modal-result">
+      <div class="svc-modal-result-label">Результат</div>
+      <div class="svc-modal-result-text" id="modal-result"></div>
+    </div>
+    <div class="svc-modal-price" id="modal-price"></div>
+    <div class="svc-modal-footer">
+      <a href="#cta" class="btn btn-lg" id="modal-cta">Обсудить с экспертом →</a>
+      <a href="tel:+74957846316" class="btn btn-lg btn-out">+7 (495) 784-63-16</a>
+    </div>
+  </div>
+</div>
+
 <script>
 // NAV HAMBURGER
 const ham = document.getElementById('nav-ham');
@@ -381,7 +414,9 @@ function build(){
   SVCS.forEach((s,i)=>{
     const el=document.createElement('div');
     el.className='chip';
-    el.innerHTML=`<div class="chip-inner"><div class="chip-ico">${s.ico}</div><div><div class="chip-name">${s.name}</div><div class="chip-tag" style="color:${s.tc}">${s.tag}</div></div></div>`;
+    el.innerHTML=`<div class="chip-inner"><div class="chip-ico">${s.ico}</div><div><div class="chip-name">${s.name}</div><div class="chip-tag" style="color:${s.tc}">${s.tag}</div><div class="chip-hint">Подробнее →</div></div></div>`;
+    el.title=s.name;
+    el.addEventListener('click',()=>openModal(SVC_IDS[i]));
     root.appendChild(el);
     chips.push({el,bx:pos[i].x,by:pos[i].y,ph:Math.random()*Math.PI*2,ph2:Math.random()*Math.PI*2,ax:8+Math.random()*14,ay:6+Math.random()*12,sp:.25+Math.random()*.35});
   });
@@ -411,6 +446,9 @@ function animate(t){
   });
   drawLines(cur);
 }
+
+// CHIPS → service modal IDs
+const SVC_IDS=['sv-ot','sv-sout','sv-fire','sv-elec','sv-lab','sv-edu','sv-pk','sv-pk','sv-dist','sv-law'];
 
 if(window.innerWidth > 768){
   build();
@@ -446,6 +484,80 @@ const obs=new IntersectionObserver(e=>{
   e.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); });
 },{threshold:.08});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+// ── SERVICE MODAL DATA ─────────────────────────────────────────
+const SVC_DATA={
+  'sv-ot':{ico:'🛡️',title:'Охрана труда',badge:'Обязательно по закону',badgeClass:'b-req',
+    risk:'Штраф до 200 000 ₽ и приостановка деятельности',
+    includes:['Назначение специалиста по ОТ — берём функцию на себя','Разработка и актуализация документации (инструкции, положения, журналы)','Проведение вводных и плановых инструктажей','Оценка профессиональных рисков по актуальным требованиям','Сопровождение при проверках ГИТ — специалист выезжает лично','Расследование несчастных случаев на производстве','Составление и подача отчётов в Роструд','Взаимодействие с ФСС по вопросам страхования'],
+    result:'Полная готовность к проверкам ГИТ. Документы актуальны. Штатный специалист не нужен.',price:'от 18 000 ₽/мес'},
+  'sv-sout':{ico:'🔬',title:'Спецоценка условий труда (СОУТ)',badge:'Обязательно каждые 5 лет',badgeClass:'b-req',
+    risk:'Без СОУТ — штраф до 80 000 ₽, приостановка деятельности',
+    includes:['Идентификация вредных и опасных факторов на рабочих местах','Инструментальные измерения собственной аккредитованной лабораторией','Оформление карт СОУТ и сводной ведомости результатов','Декларирование соответствия условий труда нормативам','Внесение результатов в ФГИС СОУТ (Роструд)','Ознакомление работников с результатами под подпись','Протоколы установленной формы — без замечаний'],
+    result:'Полный пакет документов. Сдача в Роструд без замечаний. Срок соблюдён.',price:'Индивидуально — по числу рабочих мест'},
+  'sv-edu':{ico:'🎓',title:'Обучение персонала',badge:'Популярное',badgeClass:'b-pop',
+    risk:'Необученный сотрудник = личная ответственность руководителя',
+    includes:['35+ программ: охрана труда, пожарная безопасность, ГО и ЧС','Работы на высоте (I, II, III уровни квалификации)','Первая помощь пострадавшим на производстве','Промышленная и экологическая безопасность','Очная форма в Москве или выезд преподавателя на объект','Дистанционная форма — без отрыва от производства','Удостоверения государственного образца за 3–5 дней'],
+    result:'Удостоверения гособразца. Все сотрудники обучены. Журналы в порядке.',price:'от 4 200 ₽/чел'},
+  'sv-fire':{ico:'🔥',title:'Пожарная безопасность',badge:'Обязательно по закону',badgeClass:'b-req',
+    risk:'Штраф за нарушения ПБ — до 400 000 ₽ для организации',
+    includes:['Аудит объекта на соответствие требованиям МЧС','Разработка документации: инструкции, приказы, журналы ПБ','Разработка и актуализация планов эвакуации','Обучение: пожарно-технический минимум (ПТМ)','Подготовка добровольных пожарных дружин','Заполнение и регистрация пожарной декларации','Технический надзор за средствами пожаротушения','Сопровождение проверок МЧС — специалист выезжает лично'],
+    result:'Полная готовность к проверкам МЧС. Документация в порядке.',price:'от 18 000 ₽'},
+  'sv-pk':{ico:'📊',title:'Производственный контроль',badge:'Санитарный надзор',badgeClass:'b-pop',
+    risk:'Нарушение требований Роспотребнадзора — приостановка деятельности',
+    includes:['Разработка программы производственного контроля (ППК)','Организация лабораторных исследований на объекте','Замеры воздуха рабочей зоны, освещённости, шума, вибрации','Микробиологический контроль для пищевых объектов','Химический анализ воды, почвы, воздуха','Протоколы измерений установленного образца','Ведение журналов производственного контроля'],
+    result:'Программа ПК утверждена. Протоколы для Роспотребнадзора готовы.',price:'Индивидуально — по объектам и факторам'},
+  'sv-lab':{ico:'⚡',title:'Электроизмерительная лаборатория',badge:'Аккредитация Ростехнадзора',badgeClass:'b-lab',
+    risk:'Ростехнадзор и страховщики требуют актуальные протоколы измерений',
+    includes:['Измерение сопротивления изоляции кабелей и проводов','Проверка заземляющих устройств и молниезащиты','Измерение сопротивления петли фаза-нуль','Испытание защитных средств (перчатки, галоши)','Проверка автоматических выключателей и УЗО','Тепловизионный контроль электрооборудования','Протоколы установленного образца — принимает Ростехнадзор'],
+    result:'Протоколы для Ростехнадзора, страховщиков, Роспотребнадзора.',price:'Индивидуально — по объёму измерений'},
+  'sv-elec':{ico:'⚡',title:'Электробезопасность',badge:'Ростехнадзор',badgeClass:'b-lab',
+    risk:'Работа с электроустановками без допуска — уголовная ответственность',
+    includes:['Присвоение I группы неэлектротехническому персоналу','Присвоение II–V групп электротехническому персоналу','Проверка знаний ПТЭ и ПТБ электроустановок','Обучение в очной и дистанционной форме','Удостоверения установленного образца с группой допуска','Формирование аттестационной комиссии на предприятии','Первичная и повторная аттестация'],
+    result:'Удостоверения с группой допуска. Журнал проверки знаний. Комиссия создана.',price:'от 3 500 ₽/чел'},
+  'sv-dist':{ico:'💻',title:'Дистанционное обучение',badge:'Онлайн · Без отрыва',badgeClass:'b-pop',
+    risk:'50+ человек в аудитории — простой производства и командировки',
+    includes:['35+ программ на платформе study-ukcpoisk.ru','Охрана труда, пожарная безопасность, электробезопасность, ГО и ЧС','Доступ 24/7 — обучение в любое удобное время','Контроль прохождения курсов для HR и руководителей','Итоговое тестирование + протокол аттестационной комиссии','Удостоверения гособразца — доставка почтой или курьером','Групповые скидки от 10 сотрудников'],
+    result:'Удостоверения гособразца без командировок и простоев производства.',price:'от 2 800 ₽/чел (онлайн)'},
+  'sv-law':{ico:'⚖',title:'Юридические и бухгалтерские услуги',badge:'Уникально в нише',badgeClass:'b-uniq',
+    risk:'Правовые и налоговые риски без профессиональной защиты',
+    includes:['Юридическое сопровождение при проверках ГИТ, МЧС, Ростехнадзора','Обжалование штрафов и предписаний контролирующих органов','Защита интересов компании в суде','Консультации по трудовому и корпоративному законодательству','Бухгалтерский аутсорсинг — ведение учёта','Налоговая оптимизация в рамках закона','Кадровый документооборот и проверка трудовых договоров'],
+    result:'Защита при проверках. Снижение рисков штрафов и санкций.',price:'По запросу'},
+};
+
+function openModal(id){
+  const d=SVC_DATA[id]; if(!d)return;
+  document.getElementById('modal-ico').textContent=d.ico;
+  document.getElementById('modal-title').textContent=d.title;
+  const badge=document.getElementById('modal-badge');
+  badge.textContent=d.badge; badge.className='svc-modal-badge '+d.badgeClass;
+  document.getElementById('modal-risk').textContent=d.risk;
+  document.getElementById('modal-list').innerHTML=d.includes.map(t=>`<li>${t}</li>`).join('');
+  document.getElementById('modal-result').textContent=d.result;
+  document.getElementById('modal-price').innerHTML=`Стоимость: <strong>${d.price}</strong>`;
+  document.getElementById('svc-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function _closeModal(){
+  document.getElementById('svc-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('svc-modal').addEventListener('click',e=>{
+  if(e.target===document.getElementById('svc-modal'))_closeModal();
+});
+document.getElementById('modal-close').addEventListener('click',_closeModal);
+document.getElementById('modal-cta').addEventListener('click',_closeModal);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape')_closeModal(); });
+
+// Make service cards clickable
+document.querySelectorAll('.sv[id]').forEach(card=>{
+  card.style.cursor='pointer';
+  const more=card.querySelector('.sv-more');
+  if(more){ more.textContent='Что входит →'; more.removeAttribute('href'); }
+  card.addEventListener('click',function(e){
+    if(!e.target.closest('a[href]'))openModal(card.id);
+  });
+});
 </script>
 </body>
 </html>
