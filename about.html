@@ -3,63 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>О компании — ГК ПОИСК</title>
+<title>О компании — ГК ПОИСК · 37 лет в безопасности бизнеса</title>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="poisk_landing.css">
 <style>
-  /* STATS STRIP */
-  .about-strip { background: var(--blue); display: flex; justify-content: center; }
-  .astrip-item { padding: 1.6rem 3.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,.12); }
-  .astrip-item:last-child { border: none; }
-  .astrip-n { font-family: 'Unbounded', sans-serif; font-size: 1.9rem; font-weight: 900; color: white; line-height: 1; }
-  .astrip-n em { color: var(--ice4); font-style: normal; }
-  .astrip-l { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 5px; }
+/* HERO */
+.about-hero { background: var(--navy); padding: 8rem 2.5rem 5rem; position: relative; overflow: hidden; }
+.about-hero::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 0L0 0 0 48' stroke='rgba(255,255,255,0.04)' stroke-width='.8'/%3E%3C/svg%3E") repeat; pointer-events:none; }
+.ah-blob { position:absolute; border-radius:50%; pointer-events:none; }
+.about-hero-inner { max-width:1280px; margin:0 auto; position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.ah-eye { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
+.ah-h { font-family:'Unbounded',sans-serif; font-size:clamp(1.8rem,3vw,2.8rem); font-weight:900; color:white; line-height:1.1; margin-bottom:1.25rem; }
+.ah-h em { color:var(--ice4); font-style:normal; }
+.ah-sub { font-size:15px; color:rgba(255,255,255,.5); line-height:1.85; margin-bottom:2rem; }
+.ah-btns { display:flex; gap:.75rem; flex-wrap:wrap; }
+.ah-stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,.07); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.1); }
+.ahs-cell { background:rgba(255,255,255,.03); padding:1.75rem; transition:background .2s; }
+.ahs-cell:hover { background:rgba(255,255,255,.07); }
+.ahs-n { font-family:'Unbounded',sans-serif; font-size:2rem; font-weight:900; color:white; line-height:1; margin-bottom:6px; }
+.ahs-n em { color:var(--ice4); font-style:normal; }
+.ahs-l { font-size:11px; color:rgba(255,255,255,.4); line-height:1.5; }
+.ahs-ctx { font-size:10px; color:var(--gold); font-weight:700; margin-top:4px; }
 
-  /* COOPERATION */
-  .coop-sec { background: var(--off); padding: 5rem 2.5rem; border-top: 1px solid var(--border); }
-  .coop-i { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .coop-i .sec-t { margin-bottom: 1.5rem; }
-  .coop-txt p { font-size: 14px; color: var(--mid); line-height: 1.85; margin-bottom: 1.2rem; }
-  .coop-offer-title { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; color: var(--text); margin: 2rem 0 .75rem; }
-  .coop-contacts { background: var(--ice); border: 1px solid var(--border2); border-radius: var(--r2); padding: 1.5rem 1.75rem; margin-top: 2rem; }
-  .coop-contacts p { font-size: 13px; color: var(--mid); line-height: 1.75; }
-  .coop-contacts .ct-phone { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue); margin-top: .65rem; }
-  .coop-contacts .ct-note { font-size: 12px; color: var(--muted); margin-top: .65rem; }
-  .coop-cta { margin-top: 2.25rem; }
+/* TIMELINE */
+.tl-sec { background:var(--off); padding:5rem 2.5rem; border-top:1px solid var(--border); }
+.tl-i { max-width:1100px; margin:0 auto; }
+.tl-hd { text-align:center; margin-bottom:3.5rem; }
+.tl-track { position:relative; }
+.tl-track::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; background:var(--border2); transform:translateX(-50%); }
+.tl-item { display:grid; grid-template-columns:1fr 52px 1fr; margin-bottom:2.5rem; align-items:flex-start; }
+.tl-item:last-child { margin-bottom:0; }
+.tl-left { padding-right:2.5rem; text-align:right; }
+.tl-right { padding-left:2.5rem; text-align:left; }
+.tl-dot-col { display:flex; justify-content:center; padding-top:5px; }
+.tl-dot-inner { width:14px; height:14px; border-radius:50%; background:var(--blue); border:3px solid var(--off); box-shadow:0 0 0 2px var(--blue); flex-shrink:0; }
+.tl-year { font-family:'Unbounded',sans-serif; font-size:11px; font-weight:900; color:var(--blue); letter-spacing:1px; margin-bottom:.5rem; }
+.tl-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:.4rem; line-height:1.4; }
+.tl-desc { font-size:12px; color:var(--muted); line-height:1.7; }
 
-  /* CLIENTS */
-  .clients-box { background: white; border: 1px solid var(--border); border-radius: var(--r2); padding: 2rem; }
-  .clients-eye { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.1rem; }
-  .client-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
-  .client-pill { background: var(--off); border: 1.5px solid var(--border2); border-radius: 8px; padding: 8px 15px; font-size: 12px; font-weight: 700; color: var(--mid); transition: border-color .2s, color .2s; cursor: default; }
-  .client-pill:hover { border-color: var(--blue); color: var(--blue); }
-  .clients-note { font-size: 12px; color: var(--faint); font-style: italic; }
-  .clients-industries { margin-top: 1.75rem; }
-  .clients-eye2 { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: .85rem; }
-  .ind-pills { display: flex; flex-wrap: wrap; gap: .4rem; }
-  .ind-pill { background: var(--ice); border: 1px solid var(--ice3); border-radius: 6px; padding: 5px 11px; font-size: 11px; font-weight: 600; color: var(--blue); }
+/* MISSION */
+.mission-sec { background:var(--navy); padding:5rem 2.5rem; }
+.mission-i { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.mission-quote { font-family:'Unbounded',sans-serif; font-size:clamp(1.1rem,1.8vw,1.5rem); font-weight:700; color:white; line-height:1.4; margin-bottom:1.5rem; }
+.mission-quote em { color:var(--ice4); font-style:normal; }
+.mission-sub { font-size:14px; color:rgba(255,255,255,.45); line-height:1.85; }
+.values-g { display:flex; flex-direction:column; gap:.75rem; }
+.val-item { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:var(--r2); padding:1.25rem 1.5rem; display:flex; gap:1rem; align-items:flex-start; transition:background .2s; }
+.val-item:hover { background:rgba(255,255,255,.09); }
+.val-ico { width:40px; height:40px; background:rgba(21,87,192,.2); border:1px solid rgba(21,87,192,.3); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; margin-top:1px; }
+.val-title { font-size:13px; font-weight:700; color:white; margin-bottom:3px; }
+.val-desc { font-size:12px; color:rgba(255,255,255,.4); line-height:1.6; }
 
-  /* SPECIALISTS */
-  .spec-sec { background: white; padding: 5rem 2.5rem; border-top: 1px solid var(--border); }
-  .spec-si { max-width: 1280px; margin: 0 auto; }
-  .spec-hd { margin-bottom: 2.5rem; }
-  .spec-g { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
-  .spec-c { background: var(--off); border: 1px solid var(--border); border-radius: var(--r2); padding: 2rem 1.5rem; text-align: center; transition: box-shadow .25s, transform .25s; }
-  .spec-c:hover { box-shadow: var(--sh2); transform: translateY(-4px); }
-  .spec-av { width: 72px; height: 72px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; color: white; margin: 0 auto 1.1rem; }
-  .spec-nm { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1.4; }
-  .spec-ti { font-size: 11px; color: var(--muted); line-height: 1.65; }
+/* DIRECTOR */
+.director-sec { background:var(--off); padding:5rem 2.5rem; border-top:1px solid var(--border); }
+.director-i { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:300px 1fr; gap:4rem; align-items:start; }
+.director-card { background:white; border:1.5px solid var(--border); border-radius:20px; padding:2.25rem 2rem; text-align:center; position:sticky; top:85px; }
+.dir-av { width:96px; height:96px; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center; font-family:'Unbounded',sans-serif; font-size:26px; font-weight:700; color:white; margin:0 auto 1.25rem; }
+.dir-nm { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; color:var(--text); line-height:1.45; margin-bottom:.5rem; }
+.dir-pos { font-size:12px; color:var(--muted); line-height:1.6; }
+.dir-badges { display:flex; flex-direction:column; gap:.5rem; margin-top:1.25rem; }
+.dir-badge { background:var(--ice); border:1px solid var(--border2); border-radius:8px; padding:7px 12px; font-size:11px; font-weight:600; color:var(--blue); line-height:1.4; }
+.director-content .sec-ey { margin-bottom:.5rem; }
+.director-content .sec-t { margin-bottom:1.5rem; }
+.dir-body p { font-size:14px; color:var(--mid); line-height:1.85; margin-bottom:1.2rem; }
+.dir-body blockquote { border-left:3px solid var(--blue); padding-left:1.25rem; margin:1.5rem 0; font-size:14px; color:var(--mid); font-style:italic; line-height:1.8; }
+.dir-ach-g { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem; }
+.dir-ach { background:white; border:1px solid var(--border); border-radius:var(--r2); padding:1.25rem; }
+.dir-ach-ico { font-size:22px; margin-bottom:.5rem; }
+.dir-ach-t { font-size:13px; font-weight:700; color:var(--text); margin-bottom:.25rem; }
+.dir-ach-d { font-size:11px; color:var(--muted); line-height:1.5; }
 
-  @media (max-width: 900px) {
-    .coop-i { grid-template-columns: 1fr; gap: 2.5rem; }
-    .spec-g { grid-template-columns: repeat(2, 1fr); }
-    .astrip-item { padding: 1.2rem 1.5rem; }
-  }
-  @media (max-width: 560px) {
-    .spec-g { grid-template-columns: 1fr; }
-    .about-strip { flex-direction: column; }
-    .astrip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.12); }
-  }
+/* LICENSES */
+.lic-page-sec { background:white; padding:5rem 2.5rem; border-top:1px solid var(--border); }
+.lic-page-i { max-width:1280px; margin:0 auto; }
+.lic-cards-g { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:2.5rem; }
+.lic-pg-card { background:var(--off); border:1.5px solid var(--border); border-radius:var(--r2); padding:1.75rem; transition:border-color .2s,box-shadow .2s,transform .2s; }
+.lic-pg-card:hover { border-color:var(--blue); box-shadow:var(--sh2); transform:translateY(-3px); }
+.lic-pg-ico { font-size:32px; margin-bottom:1rem; }
+.lic-pg-title { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; color:var(--text); line-height:1.4; margin-bottom:.5rem; }
+.lic-pg-org { font-size:11px; font-weight:700; color:var(--blue); margin-bottom:.6rem; }
+.lic-pg-desc { font-size:12px; color:var(--muted); line-height:1.65; }
+
+/* TEAM */
+.team-sec { background:var(--off); padding:5rem 2.5rem; border-top:1px solid var(--border); }
+.team-i { max-width:1280px; margin:0 auto; }
+.team-g { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; margin-top:2.5rem; }
+.team-card { background:white; border:1.5px solid var(--border); border-radius:var(--r2); padding:2rem 1.5rem; text-align:center; transition:border-color .2s,box-shadow .2s,transform .2s; }
+.team-card:hover { border-color:var(--blue); box-shadow:var(--sh2); transform:translateY(-4px); }
+.team-av { width:68px; height:68px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Unbounded',sans-serif; font-size:16px; font-weight:700; color:white; margin:0 auto 1rem; }
+.ta-1 { background:var(--blue); }
+.ta-2 { background:var(--navy); }
+.ta-3 { background:#2E7D32; }
+.ta-4 { background:#6A1B9A; }
+.ta-5 { background:#C62828; }
+.team-nm { font-size:13px; font-weight:700; color:var(--text); margin-bottom:.4rem; line-height:1.4; }
+.team-ti { font-size:11px; color:var(--muted); line-height:1.6; }
+.team-exp { display:inline-flex; align-items:center; background:var(--ice); border:1px solid var(--border2); border-radius:20px; padding:3px 10px; font-size:10px; font-weight:700; color:var(--blue); margin-top:.75rem; }
+
+/* CLIENTS */
+.clients-page-sec { background:var(--navy2); padding:5rem 2.5rem; }
+.clients-page-i { max-width:1280px; margin:0 auto; }
+.cpills { display:flex; flex-wrap:wrap; gap:.75rem; margin:2rem 0; }
+.cpill { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:10px 18px; font-size:13px; font-weight:700; color:rgba(255,255,255,.85); transition:all .2s; cursor:default; }
+.cpill:hover { background:rgba(255,255,255,.12); color:white; }
+.cpill-muted { background:rgba(255,255,255,.03); border-color:rgba(255,255,255,.07); color:rgba(255,255,255,.35); font-style:italic; font-size:11px; }
+.ind-g { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2.5rem; }
+.ind-c { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:var(--r2); padding:1.25rem; transition:background .2s; }
+.ind-c:hover { background:rgba(255,255,255,.09); }
+.ind-c-ico { font-size:24px; margin-bottom:.75rem; }
+.ind-c-title { font-size:13px; font-weight:700; color:rgba(255,255,255,.85); margin-bottom:.3rem; }
+.ind-c-sub { font-size:11px; color:rgba(255,255,255,.35); line-height:1.5; }
+.letters-block { margin-top:3rem; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r2); padding:2rem 2.5rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.lb-stat { }
+.lb-n { font-family:'Unbounded',sans-serif; font-size:2.5rem; font-weight:900; color:white; line-height:1; }
+.lb-l { font-size:13px; color:rgba(255,255,255,.4); margin-top:5px; }
+.lb-right p { font-size:14px; color:rgba(255,255,255,.55); line-height:1.75; max-width:480px; margin-bottom:1.25rem; }
+
+/* BOTTOM CTA */
+.about-cta-sec { background:var(--blue); padding:5rem 2.5rem; position:relative; overflow:hidden; text-align:center; }
+.act-ring { position:absolute; border-radius:50%; border:1px solid rgba(255,255,255,.06); pointer-events:none; }
+.about-cta-i { max-width:800px; margin:0 auto; position:relative; z-index:2; }
+.act-eye { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:1.5rem; }
+.act-h { font-family:'Unbounded',sans-serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:900; color:white; line-height:1.2; margin-bottom:1rem; }
+.act-sub { font-size:14px; color:rgba(255,255,255,.6); line-height:1.75; margin-bottom:2rem; }
+.act-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.act-gs { display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem; }
+.act-g { font-size:11px; color:rgba(255,255,255,.45); display:flex; align-items:center; gap:5px; }
+.act-g::before { content:'✓'; color:rgba(180,220,255,.8); }
+
+/* RESPONSIVE */
+@media (max-width:1024px) {
+  .about-hero-inner { grid-template-columns:1fr; gap:3rem; }
+  .ah-stats { max-width:480px; }
+  .mission-i { grid-template-columns:1fr; gap:3rem; }
+  .director-i { grid-template-columns:1fr; gap:2.5rem; }
+  .director-card { position:static; }
+  .lic-cards-g { grid-template-columns:1fr 1fr; }
+  .ind-g { grid-template-columns:1fr 1fr; }
+  .team-g { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:768px) {
+  .about-hero { padding:6rem 1.25rem 3rem; }
+  .tl-sec { padding:3rem 1.25rem; }
+  .tl-track::before { left:20px; transform:none; }
+  .tl-item { grid-template-columns:40px 1fr; }
+  .tl-left { display:none; }
+  .tl-dot-col { justify-content:center; padding-top:5px; }
+  .tl-right { padding-left:1rem; text-align:left; grid-column:2; }
+  .tl-item.tl-left-item .tl-left { display:block; grid-column:2; text-align:left; padding-left:1rem; padding-right:0; }
+  .tl-item.tl-left-item .tl-dot-col { grid-column:1; }
+  .tl-item.tl-left-item .tl-right { display:none; }
+  .dir-ach-g { grid-template-columns:1fr; }
+  .lic-cards-g { grid-template-columns:1fr; }
+  .ind-g { grid-template-columns:1fr 1fr; }
+  .team-g { grid-template-columns:1fr 1fr; }
+  .letters-block { flex-direction:column; }
+  .letters-block .btn { width:100%; justify-content:center; }
+  .act-btns { flex-direction:column; align-items:center; }
+  .act-btns .btn { width:100%; max-width:360px; justify-content:center; }
+}
+@media (max-width:480px) {
+  .ind-g { grid-template-columns:1fr; }
+  .team-g { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -70,138 +176,390 @@
     <a href="index.html" class="logo">
       <img src="logo (1).png" alt="ГК ПОИСК" style="height:40px;width:auto;display:block;">
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="index.html#services">Услуги</a>
       <a href="about.html" class="nav-active">О компании</a>
       <a href="seminars.html">Семинары</a>
       <a href="prices.html">Цены</a>
       <a href="index.html#contacts">Контакты</a>
+      <a href="tel:+74957846316" class="nav-links-phone">+7 (495) 784-63-16</a>
     </div>
     <div class="nav-r">
       <a href="tel:+74957846316" class="nav-phone">+7 (495) 784-63-16</a>
       <a href="index.html#cta" class="btn">Консультация →</a>
+      <button class="nav-ham" id="nav-ham" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<section class="page-hero page-hero--centered">
-  <div class="page-hero-inner">
-    <div class="page-hero-eye">О компании</div>
-    <h1 class="page-hero-h">Сотрудничество</h1>
-    <p class="page-hero-sub">Группа компаний «Поиск» всегда заинтересована в новых партнерах. Если Вы считаете, что мы можем быть полезны друг другу — пожалуйста, свяжитесь с нами.</p>
+<!-- HERO -->
+<section class="about-hero">
+  <div class="ah-blob" style="width:600px;height:600px;background:radial-gradient(circle,rgba(21,87,192,.15) 0%,transparent 70%);top:-200px;right:-150px;"></div>
+  <div class="ah-blob" style="width:300px;height:300px;background:radial-gradient(circle,rgba(200,169,110,.08) 0%,transparent 70%);bottom:50px;left:10%;"></div>
+  <div class="about-hero-inner">
+    <div>
+      <div class="ah-eye">О компании</div>
+      <h1 class="ah-h">Надёжность,<br>проверенная <em>37 годами</em></h1>
+      <p class="ah-sub">С 1988 года помогаем российским предприятиям работать безопасно и без штрафов. За это время обучили 300 000+ специалистов и стали доверенным партнёром для 27 000+ компаний по всей стране.</p>
+      <div class="ah-btns">
+        <a href="index.html#cta" class="btn btn-lg">Обсудить задачу →</a>
+        <a href="tel:+74957846316" class="btn btn-lg btn-ghost">+7 (495) 784-63-16</a>
+      </div>
+    </div>
+    <div class="ah-stats fade">
+      <div class="ahs-cell">
+        <div class="ahs-n">1988</div>
+        <div class="ahs-l">год основания</div>
+        <div class="ahs-ctx">37 лет на рынке</div>
+      </div>
+      <div class="ahs-cell">
+        <div class="ahs-n">27<em>К+</em></div>
+        <div class="ahs-l">клиентов по России</div>
+        <div class="ahs-ctx">Все отрасли</div>
+      </div>
+      <div class="ahs-cell">
+        <div class="ahs-n">130<em>+</em></div>
+        <div class="ahs-l">специалистов в штате</div>
+        <div class="ahs-ctx">Каждый — профиль</div>
+      </div>
+      <div class="ahs-cell">
+        <div class="ahs-n">40<em>+</em></div>
+        <div class="ahs-l">видов услуг</div>
+        <div class="ahs-ctx">Полный комплекс</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- STATS STRIP -->
-<div class="about-strip">
-  <div class="astrip-item">
-    <div class="astrip-n">30<em>+</em></div>
-    <div class="astrip-l">лет опыта работы</div>
-  </div>
-  <div class="astrip-item">
-    <div class="astrip-n">70<em>+</em></div>
-    <div class="astrip-l">постоянных клиентов</div>
-  </div>
-  <div class="astrip-item">
-    <div class="astrip-n">40<em>+</em></div>
-    <div class="astrip-l">видов услуг</div>
-  </div>
-</div>
-
-<!-- COOPERATION -->
-<section class="coop-sec">
-  <div class="coop-i">
-
-    <div class="coop-txt fade">
-      <div class="sec-ey">Региональное партнёрство</div>
-      <h2 class="sec-t">Работаем по всей России</h2>
-
-      <p>Востребованность услуг в сфере охраны труда, пожарной безопасности, энергосбережения и других направлениях деятельности компании есть не только в Москве, но и в других городах и регионах нашей страны.</p>
-      <p>Может оказаться, что Вы столкнулись с необходимостью проведения комплекса мероприятий в области охраны труда, пожарной безопасности, электробезопасности.</p>
-
-      <div class="coop-offer-title">Что мы предлагаем?</div>
-      <p>Формы сотрудничества Компании и регионов могут включать в себя партнерские соглашения в рамках заключенных агентских договоров, также может рассматриваться возможность открытия филиалов по необходимым и актуальным направлениям.</p>
-
-      <div class="coop-contacts">
-        <p>По вопросам сотрудничества в вашем регионе обращайтесь за контактной информацией в головной офис, расположенный в Москве, по телефонам:</p>
-        <div class="ct-phone">+7 (495) 784-63-16 · 710-30-49, 51, 52, 54</div>
-        <p class="ct-note">На сайте Вы найдёте полный перечень предоставляемых нами услуг с указанием стоимости.</p>
-      </div>
-
-      <div class="coop-cta">
-        <a href="index.html#cta" class="btn btn-lg">Оставить заявку →</a>
-      </div>
+<!-- TIMELINE -->
+<section class="tl-sec">
+  <div class="tl-i">
+    <div class="tl-hd fade">
+      <div class="sec-ey" style="text-align:center">История</div>
+      <h2 class="sec-t" style="text-align:center">37 лет развития</h2>
     </div>
+    <div class="tl-track">
 
+      <!-- 1988: левая сторона -->
+      <div class="tl-item tl-left-item fade">
+        <div class="tl-dot-col"><div class="tl-dot-inner"></div></div>
+        <div class="tl-left">
+          <div class="tl-year">1988</div>
+          <div class="tl-title">Основание компании</div>
+          <div class="tl-desc">ГК «Поиск» основана в Москве как консультационное бюро в области охраны труда и промышленной безопасности.</div>
+        </div>
+        <div class="tl-right"></div>
+      </div>
+
+      <!-- 1990-е: правая сторона -->
+      <div class="tl-item fade">
+        <div class="tl-left"></div>
+        <div class="tl-dot-col"><div class="tl-dot-inner"></div></div>
+        <div class="tl-right">
+          <div class="tl-year">1990-е</div>
+          <div class="tl-title">Первые лицензии</div>
+          <div class="tl-desc">Получение государственных лицензий. Запуск направлений пожарной безопасности и обучения персонала.</div>
+        </div>
+      </div>
+
+      <!-- 2000-е: левая -->
+      <div class="tl-item tl-left-item fade">
+        <div class="tl-dot-col"><div class="tl-dot-inner"></div></div>
+        <div class="tl-left">
+          <div class="tl-year">2000-е</div>
+          <div class="tl-title">Учебный центр «Поиск»</div>
+          <div class="tl-desc">Открытие Центра повышения квалификации. Лицензия Минобрнауки РФ на образовательную деятельность по всем направлениям безопасности.</div>
+        </div>
+        <div class="tl-right"></div>
+      </div>
+
+      <!-- 2010-е: правая -->
+      <div class="tl-item fade">
+        <div class="tl-left"></div>
+        <div class="tl-dot-col"><div class="tl-dot-inner"></div></div>
+        <div class="tl-right">
+          <div class="tl-year">2010-е</div>
+          <div class="tl-title">Собственная лаборатория СОУТ</div>
+          <div class="tl-desc">Аккредитация испытательной лаборатории для спецоценки условий труда. Аккредитация электроизмерительной лаборатории Ростехнадзора.</div>
+        </div>
+      </div>
+
+      <!-- 2015+: левая -->
+      <div class="tl-item tl-left-item fade">
+        <div class="tl-dot-col"><div class="tl-dot-inner"></div></div>
+        <div class="tl-left">
+          <div class="tl-year">2015+</div>
+          <div class="tl-title">Федеральный масштаб</div>
+          <div class="tl-desc">Выход в регионы. Партнёрская сеть по всей России. Запуск платформы дистанционного обучения study-ukcpoisk.ru.</div>
+        </div>
+        <div class="tl-right"></div>
+      </div>
+
+      <!-- Сегодня: правая -->
+      <div class="tl-item fade">
+        <div class="tl-left"></div>
+        <div class="tl-dot-col"><div class="tl-dot-inner" style="background:var(--gold);box-shadow:0 0 0 2px var(--gold);"></div></div>
+        <div class="tl-right">
+          <div class="tl-year" style="color:var(--gold2)">Сегодня</div>
+          <div class="tl-title">27 000+ клиентов по всей стране</div>
+          <div class="tl-desc">130+ специалистов в штате, 200+ семинаров в год, 40+ видов услуг. Лидер рынка в комплексном аутсорсинге безопасности.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VALUES -->
+<section class="mission-sec">
+  <div class="mission-i">
     <div class="fade">
-      <div class="clients-box">
-        <div class="clients-eye">Среди наших постоянных клиентов</div>
-        <div class="client-pills">
-          <span class="client-pill">Ашан</span>
-          <span class="client-pill">Метро Кэш энд Керри</span>
-          <span class="client-pill">Мосмарт</span>
-          <span class="client-pill">Макдональдс</span>
-          <span class="client-pill">Виктория</span>
-          <span class="client-pill">Спортмастер</span>
-          <span class="client-pill">ТД ЦУМ</span>
-          <span class="client-pill">Тануки</span>
-          <span class="client-pill">Якитория</span>
-          <span class="client-pill">SELA</span>
+      <div class="sec-ey" style="color:var(--gold)">Миссия</div>
+      <div class="mission-quote">Мы не просто выполняем требования закона — мы <em>создаём культуру безопасности</em> в российском бизнесе</div>
+      <p class="mission-sub">За 37 лет работы мы убедились: безопасность — это не статья расходов, а инвестиция в стабильность бизнеса. Штрафы, проверки, несчастные случаи обходятся в разы дороже, чем грамотно выстроенная система охраны труда.<br><br>Наша задача — взять эту заботу на себя, чтобы вы сосредоточились на своём деле.</p>
+    </div>
+    <div class="values-g fade">
+      <div class="val-item">
+        <div class="val-ico">🏆</div>
+        <div>
+          <div class="val-title">Экспертность</div>
+          <div class="val-desc">130+ специалистов с профильным образованием и многолетним практическим опытом в каждом направлении.</div>
         </div>
-        <p class="clients-note">и многие другие известные компании федерального масштаба.</p>
-        <div class="clients-industries">
-          <div class="clients-eye2">Отрасли</div>
-          <div class="ind-pills">
-            <span class="ind-pill">Торговые сети</span>
-            <span class="ind-pill">Общепит</span>
-            <span class="ind-pill">Производство</span>
-            <span class="ind-pill">Логистика</span>
-            <span class="ind-pill">IT-компании</span>
-            <span class="ind-pill">Здравоохранение</span>
-            <span class="ind-pill">Образование</span>
-            <span class="ind-pill">ЖКХ</span>
-          </div>
+      </div>
+      <div class="val-item">
+        <div class="val-ico">🤝</div>
+        <div>
+          <div class="val-title">Ответственность</div>
+          <div class="val-desc">Сопровождаем каждую проверку лично. Наш специалист — на вашем объекте, рядом с инспектором.</div>
+        </div>
+      </div>
+      <div class="val-item">
+        <div class="val-ico">⚡</div>
+        <div>
+          <div class="val-title">Оперативность</div>
+          <div class="val-desc">Реагируем за 30 минут. Уведомление о проверке через 2 недели? Закроем все документы за 5 дней.</div>
+        </div>
+      </div>
+      <div class="val-item">
+        <div class="val-ico">🔒</div>
+        <div>
+          <div class="val-title">Гарантия результата</div>
+          <div class="val-desc">За 37 лет работы ни один клиент не получил штраф по вине нашей документации. Это наш главный показатель.</div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- SPECIALISTS -->
-<section class="spec-sec">
-  <div class="spec-si">
-    <div class="spec-hd fade">
-      <div class="sec-ey">Команда</div>
-      <h2 class="sec-t">Наши специалисты</h2>
+<!-- DIRECTOR -->
+<section class="director-sec">
+  <div class="director-i">
+    <div class="director-card fade">
+      <div class="dir-av">СМ</div>
+      <div class="dir-nm">Матвеева<br>Софья Романовна</div>
+      <div class="dir-pos">Генеральный директор<br>ГК «Поиск»</div>
+      <div class="dir-badges">
+        <div class="dir-badge">Доктор экономических наук</div>
+        <div class="dir-badge">Почётный работник торговли и сферы услуг г. Москвы</div>
+        <div class="dir-badge">30+ лет в отрасли</div>
+      </div>
     </div>
-    <div class="spec-g">
-      <div class="spec-c fade">
-        <div class="spec-av">ГР</div>
-        <div class="spec-nm">Гиматдинов<br>Ринат Ривкатович</div>
-        <div class="spec-ti">Заместитель генерального директора ГК «Поиск»</div>
+    <div class="director-content">
+      <div class="sec-ey fade">Руководство</div>
+      <h2 class="sec-t fade">Компанию возглавляет<br>эксперт с 30-летним опытом</h2>
+      <div class="dir-body">
+        <p class="fade">Матвеева Софья Романовна руководит Группой компаний «Поиск» с момента её основания в 1988 году. Под её руководством компания выросла из небольшого консультационного бюро в одного из ведущих федеральных игроков рынка аутсорсинга охраны труда и промышленной безопасности.</p>
+        <p class="fade">Как доктор экономических наук, Софья Романовна соединяет глубокую экспертизу в области трудового законодательства с практическим пониманием бизнес-процессов. Именно поэтому клиенты получают не формальное соответствие нормативам, а реально работающую систему безопасности.</p>
+        <blockquote class="fade">«Нет задач, которые нельзя решить грамотно и быстро, если знать законодательство и иметь опытную команду. Наша цель — чтобы клиент никогда не думал о штрафах и проверках. Он думает о своём бизнесе — мы думаем о его безопасности.»</blockquote>
       </div>
-      <div class="spec-c fade">
-        <div class="spec-av">МЕ</div>
-        <div class="spec-nm">Матвеев<br>Евгений Александрович</div>
-        <div class="spec-ti">Заместитель генерального директора ГК «Поиск»</div>
+      <div class="dir-ach-g">
+        <div class="dir-ach fade">
+          <div class="dir-ach-ico">🎓</div>
+          <div class="dir-ach-t">Доктор экономических наук</div>
+          <div class="dir-ach-d">Академическая экспертиза в сфере управления и трудового права</div>
+        </div>
+        <div class="dir-ach fade">
+          <div class="dir-ach-ico">🏅</div>
+          <div class="dir-ach-t">Почётный работник г. Москвы</div>
+          <div class="dir-ach-d">Признание вклада в развитие культуры безопасности труда</div>
+        </div>
+        <div class="dir-ach fade">
+          <div class="dir-ach-ico">📊</div>
+          <div class="dir-ach-t">27 000+ компаний-клиентов</div>
+          <div class="dir-ach-d">Выстроенная система работы, которой доверяют лидеры рынка</div>
+        </div>
+        <div class="dir-ach fade">
+          <div class="dir-ach-ico">⚖</div>
+          <div class="dir-ach-t">0 штрафов по нашей вине</div>
+          <div class="dir-ach-d">За 37 лет ни один клиент не пострадал из-за ошибок в наших документах</div>
+        </div>
       </div>
-      <div class="spec-c fade">
-        <div class="spec-av">ЖС</div>
-        <div class="spec-nm">Жаркова<br>Светлана Юрьевна</div>
-        <div class="spec-ti">Руководитель юридического отдела ГК «Поиск»</div>
+    </div>
+  </div>
+</section>
+
+<!-- LICENSES -->
+<section class="lic-page-sec">
+  <div class="lic-page-i">
+    <div class="fade">
+      <div class="sec-ey">Документы</div>
+      <h2 class="sec-t">Лицензии и аккредитации</h2>
+      <p class="sec-s">Все услуги оказываются на основании официальных лицензий и государственных аккредитаций.</p>
+    </div>
+    <div class="lic-cards-g">
+      <div class="lic-pg-card fade">
+        <div class="lic-pg-ico">📜</div>
+        <div class="lic-pg-title">Лицензия на образовательную деятельность</div>
+        <div class="lic-pg-org">Министерство образования и науки РФ</div>
+        <div class="lic-pg-desc">Право на обучение по всем направлениям охраны труда, пожарной и электробезопасности, промышленной безопасности. Выдача удостоверений государственного образца.</div>
       </div>
-      <div class="spec-c fade">
-        <div class="spec-av">ЧВ</div>
-        <div class="spec-nm">Чалов<br>Владимир Викторович</div>
-        <div class="spec-ti">Преподаватель Центра повышения квалификации «Поиск»</div>
+      <div class="lic-pg-card fade">
+        <div class="lic-pg-ico">🔬</div>
+        <div class="lic-pg-title">Аттестат аккредитации испытательной лаборатории</div>
+        <div class="lic-pg-org">Федеральная служба по труду и занятости</div>
+        <div class="lic-pg-desc">Собственная аккредитованная лаборатория для проведения СОУТ и производственного контроля. Протоколы принимаются Рострудом без замечаний.</div>
       </div>
-      <div class="spec-c fade">
-        <div class="spec-av">ЖГ</div>
-        <div class="spec-nm">Жаркова<br>Галина Николаевна</div>
-        <div class="spec-ti">Преподаватель Центра повышения квалификации «Поиск»</div>
+      <div class="lic-pg-card fade">
+        <div class="lic-pg-ico">⚡</div>
+        <div class="lic-pg-title">Свидетельство об аккредитации электроизмерительной лаборатории</div>
+        <div class="lic-pg-org">Ростехнадзор</div>
+        <div class="lic-pg-desc">Право на проведение электрических измерений: сопротивление изоляции, заземление, петля фаза-нуль, молниезащита. Протоколы принимают Ростехнадзор и страховщики.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-sec">
+  <div class="team-i">
+    <div class="fade">
+      <div class="sec-ey">Команда</div>
+      <h2 class="sec-t">Ключевые специалисты</h2>
+      <p class="sec-s">130+ экспертов в штате — каждый специализируется на конкретном направлении безопасности.</p>
+    </div>
+    <div class="team-g">
+      <div class="team-card fade">
+        <div class="team-av ta-1">ГР</div>
+        <div class="team-nm">Гиматдинов Ринат Ривкатович</div>
+        <div class="team-ti">Заместитель генерального директора. Руководитель направления охраны труда и аутсорсинга.</div>
+        <div class="team-exp">20+ лет опыта</div>
+      </div>
+      <div class="team-card fade">
+        <div class="team-av ta-2">МЕ</div>
+        <div class="team-nm">Матвеев Евгений Александрович</div>
+        <div class="team-ti">Заместитель генерального директора. Руководитель направления промышленной безопасности.</div>
+        <div class="team-exp">15+ лет опыта</div>
+      </div>
+      <div class="team-card fade">
+        <div class="team-av ta-3">ЖС</div>
+        <div class="team-nm">Жаркова Светлана Юрьевна</div>
+        <div class="team-ti">Руководитель юридического отдела. Сопровождение проверок ГИТ, МЧС, Ростехнадзора.</div>
+        <div class="team-exp">18+ лет опыта</div>
+      </div>
+      <div class="team-card fade">
+        <div class="team-av ta-4">ЧВ</div>
+        <div class="team-nm">Чалов Владимир Викторович</div>
+        <div class="team-ti">Ведущий преподаватель ЦПК. Охрана труда, работы на высоте, электробезопасность.</div>
+        <div class="team-exp">25+ лет опыта</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-page-sec">
+  <div class="clients-page-i">
+    <div class="fade">
+      <div class="sec-ey" style="color:rgba(140,180,255,.6)">Клиенты</div>
+      <h2 class="sec-t sec-t-w">27 000+ компаний нам доверяют</h2>
+    </div>
+    <div class="cpills">
+      <span class="cpill">Ашан</span>
+      <span class="cpill">Метро Кэш энд Керри</span>
+      <span class="cpill">Спортмастер</span>
+      <span class="cpill">Макдональдс</span>
+      <span class="cpill">ТД ЦУМ</span>
+      <span class="cpill">Мосмарт</span>
+      <span class="cpill">Виктория</span>
+      <span class="cpill">Тануки</span>
+      <span class="cpill">Якитория</span>
+      <span class="cpill">SELA</span>
+      <span class="cpill cpill-muted">и ещё 26 990+ компаний по всей России</span>
+    </div>
+    <div class="ind-g fade">
+      <div class="ind-c">
+        <div class="ind-c-ico">🛒</div>
+        <div class="ind-c-title">Торговые сети</div>
+        <div class="ind-c-sub">Крупнейшие ритейлеры страны</div>
+      </div>
+      <div class="ind-c">
+        <div class="ind-c-ico">🍽️</div>
+        <div class="ind-c-title">Общепит и рестораны</div>
+        <div class="ind-c-sub">Сети и отдельные заведения</div>
+      </div>
+      <div class="ind-c">
+        <div class="ind-c-ico">🏭</div>
+        <div class="ind-c-title">Производство</div>
+        <div class="ind-c-sub">Машиностроение, химия, пищевая промышленность</div>
+      </div>
+      <div class="ind-c">
+        <div class="ind-c-ico">🚚</div>
+        <div class="ind-c-title">Логистика и склады</div>
+        <div class="ind-c-sub">Транспортные компании и СВХ</div>
+      </div>
+      <div class="ind-c">
+        <div class="ind-c-ico">💻</div>
+        <div class="ind-c-title">IT и технологии</div>
+        <div class="ind-c-sub">Офисы, технопарки, дата-центры</div>
+      </div>
+      <div class="ind-c">
+        <div class="ind-c-ico">🏥</div>
+        <div class="ind-c-title">Здравоохранение</div>
+        <div class="ind-c-sub">Клиники, лаборатории, аптеки</div>
+      </div>
+      <div class="ind-c">
+        <div class="ind-c-ico">🎓</div>
+        <div class="ind-c-title">Образование</div>
+        <div class="ind-c-sub">Школы, вузы, учебные центры</div>
+      </div>
+      <div class="ind-c">
+        <div class="ind-c-ico">🏗️</div>
+        <div class="ind-c-title">Строительство и ЖКХ</div>
+        <div class="ind-c-sub">Застройщики и управляющие компании</div>
+      </div>
+    </div>
+    <div class="letters-block fade">
+      <div class="lb-stat">
+        <div class="lb-n">120+</div>
+        <div class="lb-l">благодарственных писем от клиентов</div>
+      </div>
+      <div class="lb-right">
+        <p>Федеральные компании и региональные предприятия благодарят нас за профессионализм, оперативность и главное — за конкретный результат: отсутствие нарушений при проверках ГИТ, МЧС и Ростехнадзора.</p>
+        <a href="index.html#cta" class="btn btn-white">Стать клиентом →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="about-cta-sec">
+  <div class="act-ring" style="width:700px;height:700px;top:-300px;left:-200px;"></div>
+  <div class="act-ring" style="width:400px;height:400px;bottom:-180px;right:5%;"></div>
+  <div class="about-cta-i">
+    <div class="act-eye">Работаем с 1988 года</div>
+    <h2 class="act-h">Готовы взять вашу безопасность<br>под полный контроль</h2>
+    <p class="act-sub">Оставьте заявку — эксперт перезвонит в течение 30 минут и предложит решение. Без давления и навязывания.</p>
+    <div class="act-btns">
+      <a href="index.html#cta" class="btn btn-lg btn-white">Получить консультацию бесплатно →</a>
+      <a href="tel:+74957846316" class="btn btn-lg btn-ghost">+7 (495) 784-63-16</a>
+    </div>
+    <div class="act-gs">
+      <span class="act-g">Ответим за 30 минут</span>
+      <span class="act-g">37 лет на рынке</span>
+      <span class="act-g">Без навязывания</span>
+      <span class="act-g">Работаем по всей России</span>
     </div>
   </div>
 </section>
@@ -212,7 +570,7 @@
     <div class="ft-top">
       <div>
         <img src="logo (1).png" alt="ГК ПОИСК" style="height:36px;width:auto;display:block;filter:brightness(0) invert(1);">
-        <p class="ft-desc">37+ лет помогаем бизнесу работать безопасно и без штрафов. 30 000+ клиентов по всей России.</p>
+        <p class="ft-desc">37+ лет помогаем бизнесу работать безопасно и без штрафов. 27 000+ клиентов по всей России.</p>
         <div class="ft-phone">+7 (495) 784-63-16</div>
         <div class="ft-mail">info@ukcpoisk.ru · Пн–Пт 9:30–17:00</div>
         <div class="ft-mail">м. Автозаводская, 1-й Автозаводский пр-д, д.4, к.1</div>
@@ -227,19 +585,16 @@
       </div>
       <div class="ft-col">
         <h5>Обучение</h5>
-        <a href="#">Очное</a>
-        <a href="#">Дистанционное</a>
+        <a href="index.html#services">Очное обучение</a>
+        <a href="index.html#services">Дистанционное</a>
         <a href="seminars.html">Семинары</a>
-        <a href="#">Расписание</a>
-        <a href="#">Программы</a>
       </div>
       <div class="ft-col">
         <h5>Компания</h5>
         <a href="about.html">О нас</a>
-        <a href="index.html#why">Лицензии</a>
-        <a href="about.html">Клиенты</a>
         <a href="prices.html">Цены</a>
         <a href="index.html#contacts">Контакты</a>
+        <a href="#">Политика персональных данных</a>
       </div>
     </div>
     <div class="ft-bot">
@@ -249,10 +604,38 @@
   </div>
 </footer>
 
+<!-- FLOATING CONTACTS -->
+<div class="float-contacts" id="float-contacts">
+  <a href="tel:+74957846316" class="float-btn float-phone" title="Позвонить">📞</a>
+  <a href="https://wa.me/74957846316" class="float-btn float-wa" title="WhatsApp" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="mailto:info@ukcpoisk.ru" class="float-btn float-mail" title="Email">✉️</a>
+</div>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-sticky-bar">
+  <a href="tel:+74957846316" class="msb-btn msb-call">📞 Позвонить</a>
+  <a href="index.html#cta" class="msb-btn msb-cta">Оставить заявку →</a>
+</div>
+
 <script>
+const ham = document.getElementById('nav-ham');
+const navLinks = document.getElementById('nav-links');
+ham.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  ham.classList.toggle('open');
+});
+document.querySelectorAll('#nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    ham.classList.remove('open');
+  });
+});
+
 const obs = new IntersectionObserver(e => {
   e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
-}, { threshold: .1 });
+}, { threshold: .08 });
 document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 </script>
 </body>
