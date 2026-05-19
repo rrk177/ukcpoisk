@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ГК ПОИСК — Охрана труда и промышленная безопасность</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1A5C2E;
+  --green-d:#134521;
+  --green-l:#2E7D47;
+  --green-pale:#EEF7F1;
+  --gold:#C97D0C;
+  --dark:#0F1923;
+  --text:#1F2937;
+  --muted:#6B7280;
+  --border:#E5E7EB;
+  --bg:#FFFFFF;
+  --bg2:#F9F8F6;
+  --shadow:0 2px 16px rgba(0,0,0,.07);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-i{max-width:1240px;margin:0 auto;height:68px;display:flex;align-items:center;gap:2rem;padding:0 2rem}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--dark);text-decoration:none;white-space:nowrap;flex-shrink:0}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;gap:1.75rem;list-style:none;margin:0 auto}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-right{display:flex;align-items:center;gap:1.25rem;flex-shrink:0}
+.nav-phone{font-size:13px;font-weight:700;color:var(--dark);text-decoration:none;white-space:nowrap}
+.nav-phone:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:white;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.nav-cta:hover{background:var(--green-d)}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-ham span{width:22px;height:2px;background:var(--dark);display:block;border-radius:2px;transition:all .3s}
+
+/* ── HERO ── */
+.hero{padding:5.5rem 2rem 4rem}
+.hero-i{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:4.5rem;align-items:center}
+.hero-eye{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem}
+.hero-eye::before{content:'';width:28px;height:2px;background:var(--green);display:inline-block;border-radius:2px}
+.hero-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;line-height:1.08;color:var(--dark);margin-bottom:1.5rem}
+.hero-h em{color:var(--green);font-style:italic}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.8;max-width:520px;margin-bottom:2.25rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-green{background:var(--green);color:white;font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-green:hover{background:var(--green-d);transform:translateY(-1px)}
+.btn-out{background:transparent;color:var(--green);font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;border:2px solid var(--green);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-out:hover{background:var(--green-pale)}
+.hero-trust{display:flex;gap:1.75rem;flex-wrap:wrap}
+.ht-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:.4rem}
+.ht-item::before{content:'✓';color:var(--green);font-weight:800}
+/* hero right card */
+.hero-card{background:var(--green);border-radius:24px;padding:2.5rem;position:relative;overflow:hidden}
+.hero-card::before{content:'37';position:absolute;right:-16px;top:-16px;font-family:'Playfair Display',serif;font-size:180px;font-weight:900;color:rgba(255,255,255,.06);line-height:1;pointer-events:none;user-select:none}
+.hc-tag{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.75rem}
+.hc-stat{padding-bottom:1.5rem;margin-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.hc-stat:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.hc-n{font-family:'Playfair Display',serif;font-size:2.75rem;font-weight:900;color:white;line-height:1;margin-bottom:.3rem}
+.hc-n sub{font-size:1.1rem;color:rgba(255,255,255,.5);font-family:'Inter',sans-serif;font-weight:600;vertical-align:baseline}
+.hc-l{font-size:13px;color:rgba(255,255,255,.5);line-height:1.55}
+
+/* ── TICKER ── */
+.ticker{background:var(--green-d);padding:13px 0;overflow:hidden}
+.ticker-track{display:flex;gap:3rem;white-space:nowrap;animation:scrollTicker 32s linear infinite}
+.ticker-item{font-size:12px;font-weight:600;color:rgba(255,255,255,.65);flex-shrink:0;display:flex;align-items:center;gap:.75rem}
+.ticker-item::after{content:'·';color:rgba(255,255,255,.25)}
+@keyframes scrollTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SERVICES ── */
+.svc-sec{background:var(--bg2);padding:5rem 2rem}
+.svc-i{max-width:1240px;margin:0 auto}
+.sec-eye{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:.7rem}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,2.8vw,2.5rem);font-weight:900;color:var(--dark);margin-bottom:.75rem;line-height:1.15}
+.sec-sub{font-size:15px;color:var(--muted);line-height:1.75;max-width:560px;margin-bottom:3rem}
+.svc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.svc-card{background:white;padding:1.75rem;transition:background .2s;cursor:pointer;position:relative}
+.svc-card:hover{background:var(--green-pale)}
+.svc-ico{width:44px;height:44px;border-radius:10px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:1rem;transition:all .2s}
+.svc-card:hover .svc-ico{background:var(--green);filter:brightness(1.2)}
+.svc-num{font-size:10px;font-weight:700;color:var(--border);position:absolute;top:1.1rem;right:1.1rem;font-variant-numeric:tabular-nums}
+.svc-t{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:.35rem;line-height:1.4}
+.svc-d{font-size:11.5px;color:var(--muted);line-height:1.55}
+.svc-arr{font-size:11px;color:var(--green);font-weight:700;margin-top:.7rem;opacity:0;transition:opacity .2s}
+.svc-card:hover .svc-arr{opacity:1}
+
+/* ── SERVICE MODAL ── */
+.svc-overlay{position:fixed;inset:0;z-index:1000;background:rgba(15,25,35,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
+.svc-overlay.open{opacity:1;pointer-events:all}
+.svc-box{background:white;border-radius:20px;max-width:540px;width:100%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative;transform:translateY(20px) scale(.97);transition:transform .28s cubic-bezier(.34,1.4,.64,1)}
+.svc-overlay.open .svc-box{transform:none}
+.svc-close{position:absolute;top:1.25rem;right:1.25rem;background:var(--bg2);border:none;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.svc-close:hover{background:var(--border)}
+.m-ico{font-size:2.5rem;margin-bottom:1rem}
+.m-title{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:900;color:var(--dark);margin-bottom:.75rem}
+.m-risk{font-size:13px;color:#B91C1C;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:.6rem 1rem;margin-bottom:1.5rem;line-height:1.5}
+.m-section-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:.75rem}
+.m-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem}
+.m-list li{font-size:13px;color:var(--text);display:flex;align-items:flex-start;gap:.5rem;line-height:1.5}
+.m-list li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;margin-top:1px}
+.m-result{font-size:13px;color:var(--text);background:var(--green-pale);border-left:3px solid var(--green);padding:.75rem 1rem;border-radius:0 8px 8px 0;margin-bottom:1.75rem;line-height:1.6}
+.m-footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.m-price{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--green)}
+.m-cta{background:var(--green);color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;transition:background .2s}
+.m-cta:hover{background:var(--green-d)}
+
+/* ── WHY ── */
+.why-sec{background:var(--dark);padding:5.5rem 2rem;position:relative;overflow:hidden}
+.why-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 60%,rgba(26,92,46,.28) 0%,transparent 60%);pointer-events:none}
+.why-i{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.why-left .sec-eye{color:#6EBF85}
+.why-left .sec-h{color:white}
+.why-left .sec-sub{color:rgba(255,255,255,.45);margin-bottom:0;max-width:none}
+.why-cells{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.why-cell{background:rgba(255,255,255,.025);padding:2rem;transition:background .2s}
+.why-cell:hover{background:rgba(255,255,255,.055)}
+.why-n{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:white;line-height:1;margin-bottom:.4rem}
+.why-n sub{font-size:1rem;color:#6EBF85;font-family:'Inter',sans-serif;font-weight:700;vertical-align:baseline}
+.why-l{font-size:12px;color:rgba(255,255,255,.38);line-height:1.6}
+
+/* ── PROCESS ── */
+.proc-sec{background:var(--bg);padding:5rem 2rem}
+.proc-i{max-width:1240px;margin:0 auto}
+.proc-hd{text-align:center;margin-bottom:3.5rem}
+.proc-hd .sec-sub{margin:0 auto}
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.proc-line{position:absolute;top:27px;left:14%;right:14%;height:2px;background:repeating-linear-gradient(90deg,var(--green) 0,var(--green) 8px,transparent 8px,transparent 20px);opacity:.35;pointer-events:none}
+.proc-step{text-align:center;position:relative;z-index:1}
+.proc-dot{width:56px;height:56px;border-radius:50%;background:white;border:2.5px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:var(--green);margin:0 auto 1.25rem}
+.proc-t{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:.4rem}
+.proc-d{font-size:12px;color:var(--muted);line-height:1.65;max-width:200px;margin:0 auto}
+
+/* ── REVIEWS ── */
+.rv-sec{background:var(--bg2);padding:5rem 2rem}
+.rv-i{max-width:1240px;margin:0 auto}
+.rv-hd{text-align:center;margin-bottom:3rem}
+.rv-hd .sec-sub{margin:0 auto}
+.rv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.rv-card{background:white;border-radius:16px;padding:2rem;border:1px solid var(--border);transition:box-shadow .2s,transform .2s}
+.rv-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.rv-stars{color:#F59E0B;font-size:14px;margin-bottom:.8rem;letter-spacing:2px}
+.rv-text{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:1.25rem;font-style:italic}
+.rv-author{display:flex;align-items:center;gap:.75rem}
+.rv-av{width:36px;height:36px;border-radius:50%;background:var(--green);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rv-name{font-size:13px;font-weight:700;color:var(--dark)}
+.rv-date{font-size:11px;color:var(--muted)}
+.rv-footer{text-align:center;margin-top:2rem;font-size:13px;color:var(--muted)}
+.rv-footer a{color:var(--green);font-weight:600;text-decoration:none}
+.rv-footer a:hover{text-decoration:underline}
+
+/* ── CTA ── */
+.cta-sec{background:var(--green);padding:5.5rem 2rem;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(255,255,255,.07) 0%,transparent 55%);pointer-events:none}
+.cta-i{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.cta-grid{display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:start}
+.cta-eye{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.75rem}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.4rem);font-weight:900;color:white;line-height:1.2;margin-bottom:1rem}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:1.75rem}
+.cta-trust{display:flex;flex-direction:column;gap:.6rem}
+.cta-t-item{font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:.5rem}
+.cta-t-item::before{content:'✓';color:#6EBF85;font-weight:800}
+/* form */
+.cf{background:white;border-radius:18px;padding:2rem}
+.cf-h{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:1.5rem}
+.cf-row{margin-bottom:1rem}
+.cf-row label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:.4rem}
+.cf-row input,.cf-row select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--dark);outline:none;transition:border-color .2s;background:white}
+.cf-row input:focus,.cf-row select:focus{border-color:var(--green)}
+.cf-btn{width:100%;background:var(--green);color:white;border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;margin-top:.25rem}
+.cf-btn:hover{background:var(--green-d)}
+.cf-note{font-size:11px;color:var(--muted);text-align:center;margin-top:.75rem;line-height:1.5}
+
+/* ── FOOTER ── */
+.footer{background:var(--dark);padding:4rem 2rem 2rem}
+.footer-i{max-width:1240px;margin:0 auto}
+.footer-g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3.5rem}
+.fl-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:white;margin-bottom:.75rem}
+.fl-logo span{color:#6EBF85}
+.fl-desc{font-size:13px;color:rgba(255,255,255,.32);line-height:1.7;max-width:240px}
+.fc-h{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1rem}
+.fc-link{display:block;font-size:13px;color:rgba(255,255,255,.42);text-decoration:none;margin-bottom:.6rem;transition:color .2s}
+.fc-link:hover{color:white}
+.fc-p{font-size:13px;color:rgba(255,255,255,.42);margin-bottom:.5rem;line-height:1.5}
+.footer-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer-bot p{font-size:12px;color:rgba(255,255,255,.22)}
+
+/* ── FLOATING CONTACTS ── */
+.float-c{position:fixed;right:1.25rem;bottom:5.5rem;z-index:200;display:flex;flex-direction:column;gap:.6rem}
+.float-btn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;box-shadow:0 4px 14px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
+.float-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.float-phone{background:var(--green)}
+.float-wa{background:#25D366}
+.float-mail{background:var(--dark)}
+
+/* ── MOBILE STICKY ── */
+.msb{display:none;position:fixed;bottom:0;left:0;right:0;z-index:199;background:white;border-top:1px solid var(--border);padding:.75rem 1rem;gap:.75rem}
+
+/* ── FADE ── */
+.fade{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.fade.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .svc-g{grid-template-columns:repeat(2,1fr)}
+  .why-i{grid-template-columns:1fr;gap:3rem}
+  .why-cells{grid-template-columns:repeat(4,1fr)}
+  .cta-grid{grid-template-columns:1fr}
+  .footer-g{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .hero-i{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:white;border-bottom:1px solid var(--border);padding:1.5rem;gap:1rem;box-shadow:0 8px 28px rgba(0,0,0,.1)}
+  .proc-g{grid-template-columns:1fr 1fr}
+  .proc-line{display:none}
+  .rv-g{grid-template-columns:1fr}
+  .why-cells{grid-template-columns:1fr 1fr}
+  .svc-g{grid-template-columns:1fr 1fr}
+  .footer-g{grid-template-columns:1fr}
+  .float-c{display:none}
+  .msb{display:flex}
+  body{padding-bottom:68px}
+  .msb a{flex:1;text-align:center;padding:11px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none}
+  .msb-call{border:2px solid var(--green);color:var(--green)}
+  .msb-cta{background:var(--green);color:white}
+}
+@media(max-width:480px){
+  .svc-g{grid-template-columns:1fr}
+  .proc-g{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .btn-green,.btn-out{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-i">
+    <a href="#" class="nav-logo">ГК <span>ПОИСК</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#why">О нас</a></li>
+      <li><a href="#process">Как работаем</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#cta">Контакты</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+74957846316" class="nav-phone">+7 (495) 784-63-16</a>
+      <a href="#cta" class="nav-cta">Получить КП</a>
+      <button class="nav-ham" id="navHam" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-i">
+    <div class="fade">
+      <div class="hero-eye">Охрана труда и промышленная безопасность</div>
+      <h1 class="hero-h">Ваш бизнес<br>под <em>надёжной</em><br>защитой</h1>
+      <p class="hero-sub">ГК ПОИСК — комплексный аутсорсинг охраны труда, пожарной и промышленной безопасности. Работаем с предприятиями по всей России с 1988 года.</p>
+      <div class="hero-btns">
+        <a href="#cta" class="btn-green">Получить коммерческое предложение →</a>
+        <a href="tel:+74957846316" class="btn-out">📞 Позвонить</a>
+      </div>
+      <div class="hero-trust">
+        <div class="ht-item">Лицензия Минпросвещения</div>
+        <div class="ht-item">Аккредитованная лаборатория</div>
+        <div class="ht-item">37 лет на рынке</div>
+      </div>
+    </div>
+    <div class="hero-card fade">
+      <div class="hc-tag">ГК ПОИСК · с 1988 года</div>
+      <div class="hc-stat">
+        <div class="hc-n">37<sub> лет</sub></div>
+        <div class="hc-l">Работаем на рынке охраны труда<br>и промышленной безопасности</div>
+      </div>
+      <div class="hc-stat">
+        <div class="hc-n">3 000<sub>+</sub></div>
+        <div class="hc-l">Компаний-клиентов по всей России</div>
+      </div>
+      <div class="hc-stat">
+        <div class="hc-n">130<sub>+ чел.</sub></div>
+        <div class="hc-l">Экспертов в штате — аттестованных специалистов по ОТ и ПБ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Охрана труда</span>
+    <span class="ticker-item">СОУТ</span>
+    <span class="ticker-item">Пожарная безопасность</span>
+    <span class="ticker-item">Электробезопасность</span>
+    <span class="ticker-item">Обучение персонала</span>
+    <span class="ticker-item">Производственный контроль</span>
+    <span class="ticker-item">Испытательная лаборатория</span>
+    <span class="ticker-item">Экологическая безопасность</span>
+    <span class="ticker-item">Дистанционное обучение</span>
+    <span class="ticker-item">Охрана труда</span>
+    <span class="ticker-item">СОУТ</span>
+    <span class="ticker-item">Пожарная безопасность</span>
+    <span class="ticker-item">Электробезопасность</span>
+    <span class="ticker-item">Обучение персонала</span>
+    <span class="ticker-item">Производственный контроль</span>
+    <span class="ticker-item">Испытательная лаборатория</span>
+    <span class="ticker-item">Экологическая безопасность</span>
+    <span class="ticker-item">Дистанционное обучение</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="svc-sec" id="services">
+  <div class="svc-i">
+    <div class="fade">
+      <div class="sec-eye">Наши услуги</div>
+      <h2 class="sec-h">Полный спектр услуг<br>по безопасности бизнеса</h2>
+      <p class="sec-sub">Берём на себя все обязательства в сфере охраны труда — от документации до проверок. Штрафов нет, инспекции проходят без замечаний.</p>
+    </div>
+    <div class="svc-g fade">
+      <div class="svc-card" onclick="openModal('ot')">
+        <span class="svc-num">01</span>
+        <div class="svc-ico">🛡️</div>
+        <div class="svc-t">Охрана труда</div>
+        <div class="svc-d">Аутсорсинг службы ОТ, документация, инструктажи</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+      <div class="svc-card" onclick="openModal('sout')">
+        <span class="svc-num">02</span>
+        <div class="svc-ico">🔬</div>
+        <div class="svc-t">СОУТ</div>
+        <div class="svc-d">Специальная оценка условий труда, карты рабочих мест</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+      <div class="svc-card" onclick="openModal('fire')">
+        <span class="svc-num">03</span>
+        <div class="svc-ico">🔥</div>
+        <div class="svc-t">Пожарная безопасность</div>
+        <div class="svc-d">Аудит, документация, обучение пожарной безопасности</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+      <div class="svc-card" onclick="openModal('elec')">
+        <span class="svc-num">04</span>
+        <div class="svc-ico">⚡</div>
+        <div class="svc-t">Электробезопасность</div>
+        <div class="svc-d">Присвоение групп допуска, аттестация комиссий</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+      <div class="svc-card" onclick="openModal('edu')">
+        <span class="svc-num">05</span>
+        <div class="svc-ico">🎓</div>
+        <div class="svc-t">Обучение персонала</div>
+        <div class="svc-d">Очное и дистанционное обучение, удостоверения гособразца</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+      <div class="svc-card" onclick="openModal('pk')">
+        <span class="svc-num">06</span>
+        <div class="svc-ico">📊</div>
+        <div class="svc-t">Производственный контроль</div>
+        <div class="svc-d">Санитарный надзор, программы производственного контроля</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+      <div class="svc-card" onclick="openModal('lab')">
+        <span class="svc-num">07</span>
+        <div class="svc-ico">🔭</div>
+        <div class="svc-t">Испытательная лаборатория</div>
+        <div class="svc-d">Аккредитованные замеры факторов производственной среды</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+      <div class="svc-card" onclick="openModal('eco')">
+        <span class="svc-num">08</span>
+        <div class="svc-ico">🌿</div>
+        <div class="svc-t">Экологическая безопасность</div>
+        <div class="svc-d">Экологический аудит, нормирование, отчётность</div>
+        <div class="svc-arr">Подробнее →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE MODAL -->
+<div class="svc-overlay" id="svcOverlay">
+  <div class="svc-box">
+    <button class="svc-close" id="svcClose">✕</button>
+    <div class="m-ico" id="mIco"></div>
+    <h3 class="m-title" id="mTitle"></h3>
+    <p class="m-risk" id="mRisk"></p>
+    <div class="m-section-label">Что входит:</div>
+    <ul class="m-list" id="mList"></ul>
+    <p class="m-result" id="mResult"></p>
+    <div class="m-footer">
+      <div class="m-price" id="mPrice"></div>
+      <a href="#cta" class="m-cta" id="mCta">Получить КП →</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="why-sec" id="why">
+  <div class="why-i">
+    <div class="fade">
+      <div class="sec-eye">Почему ГК ПОИСК</div>
+      <h2 class="sec-h" style="color:white">37 лет мы защищаем бизнес от штрафов и несчастных случаев</h2>
+      <p class="sec-sub">Полная ответственность за результат. Если по нашей вине возникнет штраф — мы его оплатим. Гарантия прописана в договоре.</p>
+    </div>
+    <div class="why-cells fade">
+      <div class="why-cell">
+        <div class="why-n">0<sub>%</sub></div>
+        <div class="why-l">несчастных случаев у клиентов на аутсорсинге ОТ за 2024 год</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-n">98<sub>%</sub></div>
+        <div class="why-l">клиентов продлевают договор ежегодно</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-n">24<sub>ч</sub></div>
+        <div class="why-l">реакция на запрос или инцидент у клиентов на аутсорсинге</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-n">200<sub>+</sub></div>
+        <div class="why-l">проверок ГИТ, МЧС и Ростехнадзора пройдено без штрафов</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="proc-sec" id="process">
+  <div class="proc-i">
+    <div class="proc-hd fade">
+      <div class="sec-eye">Как мы работаем</div>
+      <h2 class="sec-h">Запуск за 3 дня</h2>
+      <p class="sec-sub">Без длинных переговоров и бумажной волокиты. Специалист по охране труда приступает к работе уже на следующей неделе.</p>
+    </div>
+    <div class="proc-g fade">
+      <div class="proc-line"></div>
+      <div class="proc-step">
+        <div class="proc-dot">1</div>
+        <div class="proc-t">Заявка</div>
+        <div class="proc-d">Оставляете заявку или звоните. Менеджер связывается в течение 30 минут.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-dot">2</div>
+        <div class="proc-t">Бесплатный аудит</div>
+        <div class="proc-d">Проверяем текущее состояние охраны труда и выявляем риски.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-dot">3</div>
+        <div class="proc-t">Договор и старт</div>
+        <div class="proc-d">Подписываем договор. Специалист приступает к работе в течение 3 дней.</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-dot">4</div>
+        <div class="proc-t">Результат</div>
+        <div class="proc-d">Документация в порядке. Проверки проходят без замечаний. Вы занимаетесь бизнесом.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="rv-sec" id="reviews">
+  <div class="rv-i">
+    <div class="rv-hd fade">
+      <div class="sec-eye">Отзывы клиентов</div>
+      <h2 class="sec-h">Что говорят о нас</h2>
+      <p class="sec-sub">4,6 ★ · 50+ отзывов на Яндекс Картах</p>
+    </div>
+    <div class="rv-g">
+      <div class="rv-card fade">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">«Работаем с ПОИСКОМ уже 4 года. Все проверки ГИТ проходим без единого замечания. Специалисты профессиональные, всегда на связи, документация в идеальном порядке.»</p>
+        <div class="rv-author">
+          <div class="rv-av">ИЗ</div>
+          <div><div class="rv-name">Игорь З.</div><div class="rv-date">Апрель 2024 · Яндекс Карты</div></div>
+        </div>
+      </div>
+      <div class="rv-card fade">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">«Очень компетентная компания. Провели СОУТ быстро и без лишних вопросов. Отчёты оформлены грамотно, всё сдано в срок. Рекомендую всем, кто ценит качество.»</p>
+        <div class="rv-author">
+          <div class="rv-av">АГ</div>
+          <div><div class="rv-name">Алла Гончарова</div><div class="rv-date">Апрель 2024 · Яндекс Карты</div></div>
+        </div>
+      </div>
+      <div class="rv-card fade">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">«Обратились за обучением по охране труда. Группа 30 человек прошла за 2 дня, удостоверения получили в течение недели. Всё чётко, по делу, без воды.»</p>
+        <div class="rv-author">
+          <div class="rv-av">АЛ</div>
+          <div><div class="rv-name">Александр Липатников</div><div class="rv-date">Сентябрь 2025 · Яндекс Карты</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="rv-footer fade">Все отзывы опубликованы на <a href="https://yandex.ru/maps/org/gruppa_kompaniy_poisk/1017304131/reviews/" target="_blank" rel="noopener">Яндекс Картах</a></p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="cta">
+  <div class="cta-i">
+    <div class="cta-grid">
+      <div class="fade">
+        <div class="cta-eye">Получить предложение</div>
+        <h2 class="cta-h">Узнайте стоимость для вашего предприятия</h2>
+        <p class="cta-sub">Расчёт зависит от количества сотрудников и вида деятельности. Пришлём точный расчёт в течение часа.</p>
+        <div class="cta-trust">
+          <div class="cta-t-item">Бесплатный аудит охраны труда в подарок</div>
+          <div class="cta-t-item">Договор с гарантией результата</div>
+          <div class="cta-t-item">Ответим в течение 30 минут</div>
+          <div class="cta-t-item">Работаем по всей России</div>
+        </div>
+      </div>
+      <div class="cf fade">
+        <div class="cf-h">Бесплатная консультация</div>
+        <form id="ctaForm">
+          <div class="cf-row">
+            <label>Ваше имя</label>
+            <input type="text" placeholder="Иван Петров" required>
+          </div>
+          <div class="cf-row">
+            <label>Телефон</label>
+            <input type="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="cf-row">
+            <label>Количество сотрудников</label>
+            <select>
+              <option>До 50 человек</option>
+              <option>50–200 человек</option>
+              <option>200–500 человек</option>
+              <option>Более 500 человек</option>
+            </select>
+          </div>
+          <div class="cf-row">
+            <label>Интересующая услуга</label>
+            <select>
+              <option>Охрана труда (аутсорсинг)</option>
+              <option>СОУТ</option>
+              <option>Пожарная безопасность</option>
+              <option>Электробезопасность</option>
+              <option>Обучение персонала</option>
+              <option>Производственный контроль</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <button type="submit" class="cf-btn" id="cfBtn">Получить КП бесплатно →</button>
+          <p class="cf-note">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-i">
+    <div class="footer-g">
+      <div>
+        <div class="fl-logo">ГК <span>ПОИСК</span></div>
+        <p class="fl-desc">Комплексный аутсорсинг охраны труда и промышленной безопасности с 1988 года.</p>
+      </div>
+      <div>
+        <div class="fc-h">Услуги</div>
+        <a href="#services" class="fc-link">Охрана труда</a>
+        <a href="#services" class="fc-link">СОУТ</a>
+        <a href="#services" class="fc-link">Пожарная безопасность</a>
+        <a href="#services" class="fc-link">Обучение персонала</a>
+        <a href="#services" class="fc-link">Производственный контроль</a>
+      </div>
+      <div>
+        <div class="fc-h">Компания</div>
+        <a href="../about.html" class="fc-link">О компании</a>
+        <a href="../prices.html" class="fc-link">Цены</a>
+        <a href="../about.html#licenses" class="fc-link">Лицензии</a>
+      </div>
+      <div>
+        <div class="fc-h">Контакты</div>
+        <p class="fc-p"><a href="tel:+74957846316" class="fc-link" style="margin-bottom:.25rem">+7 (495) 784-63-16</a></p>
+        <p class="fc-p"><a href="mailto:info@ukcpoisk.ru" class="fc-link" style="margin-bottom:.25rem">info@ukcpoisk.ru</a></p>
+        <p class="fc-p" style="margin-top:.5rem">Москва, ул. Дербеневская, д. 20, стр. 1</p>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <p>© 2025 ГК ПОИСК. Все права защищены.</p>
+      <p>ООО «УКЦ ПОИСК» · ИНН 7723120034</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CONTACTS (desktop) -->
+<div class="float-c">
+  <a href="tel:+74957846316" class="float-btn float-phone" title="Позвонить">📞</a>
+  <a href="https://wa.me/74957846316" class="float-btn float-wa" title="WhatsApp" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="mailto:info@ukcpoisk.ru" class="float-btn float-mail" title="Email">✉️</a>
+</div>
+
+<!-- MOBILE STICKY BAR -->
+<div class="msb">
+  <a href="tel:+74957846316" class="msb-call">📞 Позвонить</a>
+  <a href="#cta" class="msb-cta">Получить КП →</a>
+</div>
+
+<script>
+/* NAV */
+const ham = document.getElementById('navHam');
+const nav = document.getElementById('navLinks');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+/* SCROLL FADE */
+const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); }), { threshold: .08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+/* SERVICE MODAL DATA */
+const SVC = {
+  ot: {
+    ico:'🛡️', title:'Охрана труда',
+    risk:'⚠️ Без службы ОТ — штраф до 200 000 ₽ и приостановка деятельности до 90 суток',
+    includes:['Разработка системы управления охраной труда (СУОТ)','Проведение всех видов инструктажей с работниками','Разработка инструкций по охране труда (до 100 профессий)','Составление программ обучения и проверки знаний','Ведение журналов и обязательной документации','Сопровождение при проверках ГИТ — выезд специалиста','Расследование несчастных случаев','Горячая линия 24/7 для ваших сотрудников'],
+    result:'Документация в порядке. Проверки ГИТ без штрафов. Защита при несчастных случаях.', price:'от 18 000 ₽/мес'
+  },
+  sout: {
+    ico:'🔬', title:'СОУТ — Специальная оценка условий труда',
+    risk:'⚠️ Без СОУТ — штраф до 80 000 ₽ + доначисление страховых взносов',
+    includes:['Идентификация вредных и опасных производственных факторов','Инструментальные замеры на рабочих местах','Оформление карт СОУТ для каждого рабочего места','Формирование сводной ведомости и отчёта','Декларация соответствия в Роструд','Согласование с профсоюзом и работниками','Передача результатов в ФСС'],
+    result:'Карты СОУТ оформлены. Данные переданы в ФСС. Льготы по страховым взносам применены.', price:'от 600 ₽/рабочее место'
+  },
+  fire: {
+    ico:'🔥', title:'Пожарная безопасность',
+    risk:'⚠️ Нарушения требований МЧС — штраф до 400 000 ₽ и приостановка работы',
+    includes:['Разработка инструкций о мерах пожарной безопасности','Создание и ведение журналов по ПБ','Проведение противопожарных инструктажей','Разработка планов эвакуации','Организация и проведение пожарно-технических минимумов','Проверка первичных средств пожаротушения','Сопровождение при проверках МЧС'],
+    result:'Документация МЧС в порядке. Персонал обучен. Проверки без нарушений.', price:'от 12 000 ₽/мес'
+  },
+  elec: {
+    ico:'⚡', title:'Электробезопасность',
+    risk:'⚠️ Допуск персонала без группы — штраф и уголовная ответственность при несчастном случае',
+    includes:['Присвоение I группы неэлектротехническому персоналу','Присвоение II–V групп электротехническому персоналу','Проверка знаний ПТЭ и ПТБ электроустановок','Обучение в очной и дистанционной форме','Удостоверения установленного образца с группой допуска','Формирование аттестационной комиссии на предприятии','Первичная и повторная аттестация'],
+    result:'Удостоверения с группой допуска. Журнал проверки знаний. Комиссия создана.', price:'от 3 500 ₽/чел'
+  },
+  edu: {
+    ico:'🎓', title:'Обучение персонала',
+    risk:'⚠️ Работа без обучения по ОТ — штраф до 130 000 ₽ на руководителя',
+    includes:['Очное обучение на нашей базе в Москве','Выездное обучение на предприятии заказчика','Дистанционное обучение на платформе study-ukcpoisk.ru','Программы: охрана труда, ПБ, электробезопасность, ГО и ЧС','Удостоверения гособразца — доставка почтой или курьером','Протоколы аттестационной комиссии','Групповые скидки от 10 сотрудников'],
+    result:'Удостоверения гособразца. Персонал обучен. Протоколы в архиве.', price:'от 2 800 ₽/чел'
+  },
+  pk: {
+    ico:'📊', title:'Производственный контроль',
+    risk:'⚠️ Отсутствие программы ПК — штраф от 10 000 до 20 000 ₽ (ст. 6.3 КоАП)',
+    includes:['Разработка программы производственного контроля','Составление перечня объектов контроля','Организация лабораторных исследований','Сопровождение при проверках Роспотребнадзора','Ведение документации по производственному контролю','Ежегодный отчёт в Роспотребнадзор'],
+    result:'Программа ПК разработана. Отчёты сданы. Проверки Роспотребнадзора без нарушений.', price:'от 15 000 ₽/год'
+  },
+  lab: {
+    ico:'🔭', title:'Испытательная лаборатория',
+    risk:'⚠️ Замеры без аккредитованной лаборатории — результаты СОУТ недействительны',
+    includes:['Замеры уровня шума и вибрации на рабочих местах','Измерение освещённости и УФ-излучения','Определение концентрации вредных веществ в воздухе рабочей зоны','Замеры микроклимата (температура, влажность, скорость воздуха)','Измерение электромагнитных полей','Тепловизионный контроль оборудования','Протоколы с юридической силой — аккредитация ФСА'],
+    result:'Протоколы замеров оформлены. Данные для СОУТ готовы. Аккредитация ФСА подтверждена.', price:'от 1 200 ₽/замер'
+  },
+  eco: {
+    ico:'🌿', title:'Экологическая безопасность',
+    risk:'⚠️ Нарушения природоохранного законодательства — штраф до 250 000 ₽',
+    includes:['Разработка нормативов допустимых выбросов (НДВ)','Оформление паспортов отходов по ФККО','Разработка проекта нормативов образования отходов (ПНООЛР)','Статистическая отчётность 2-ТП (отходы, воздух, водхоз)','Экологический аудит предприятия','Расчёт платы НВОС'],
+    result:'Природоохранная документация в порядке. Отчёты сданы. Штрафы исключены.', price:'от 25 000 ₽/год'
+  }
+};
+
+const overlay = document.getElementById('svcOverlay');
+
+function openModal(id) {
+  const d = SVC[id]; if (!d) return;
+  document.getElementById('mIco').textContent = d.ico;
+  document.getElementById('mTitle').textContent = d.title;
+  document.getElementById('mRisk').textContent = d.risk;
+  document.getElementById('mPrice').textContent = d.price;
+  document.getElementById('mResult').textContent = '✅ ' + d.result;
+  document.getElementById('mList').innerHTML = d.includes.map(s => `<li>${s}</li>`).join('');
+  document.getElementById('mCta').onclick = () => { closeModal(); setTimeout(() => document.getElementById('cta').scrollIntoView({behavior:'smooth'}), 100); return false; };
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('svcClose').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* FORM */
+document.getElementById('ctaForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = document.getElementById('cfBtn');
+  btn.textContent = '✓ Заявка отправлена! Перезвоним в течение 30 минут';
+  btn.style.background = '#166534';
+  btn.disabled = true;
+});
+</script>
+</body>
+</html>
