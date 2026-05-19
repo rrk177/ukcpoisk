@@ -89,6 +89,43 @@
 .lic-pg-org { font-size:11px; font-weight:700; color:var(--blue); margin-bottom:.6rem; }
 .lic-pg-desc { font-size:12px; color:var(--muted); line-height:1.65; }
 
+/* LICENSE GALLERY */
+.lic-gallery-sep { margin-top:3.5rem; padding-top:3rem; border-top:1px solid var(--border); }
+.lic-gallery-hd { margin-bottom:1.75rem; }
+.lic-gallery-hd h3 { font-family:'Unbounded',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:.4rem; }
+.lic-gallery-hd p { font-size:13px; color:var(--muted); }
+.lic-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1.75rem; }
+.lic-tab { background:var(--off); border:1.5px solid var(--border); border-radius:8px; padding:8px 16px; font-size:12px; font-weight:700; color:var(--muted); cursor:pointer; transition:all .2s; font-family:'Manrope',sans-serif; }
+.lic-tab:hover { border-color:var(--blue); color:var(--blue); }
+.lic-tab.active { background:var(--blue); border-color:var(--blue); color:white; }
+.lic-panel { display:none; }
+.lic-panel.active { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
+.lic-thumb { background:var(--off); border:1.5px solid var(--border); border-radius:10px; overflow:hidden; cursor:pointer; transition:transform .2s,box-shadow .2s,border-color .2s; aspect-ratio:3/4; position:relative; }
+.lic-thumb:hover { transform:translateY(-4px) scale(1.02); box-shadow:var(--sh2); border-color:var(--blue); }
+.lic-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s; }
+.lic-thumb:hover img { transform:scale(1.04); }
+.lic-thumb-overlay { position:absolute; inset:0; background:rgba(21,87,192,0); display:flex; align-items:center; justify-content:center; transition:background .2s; }
+.lic-thumb:hover .lic-thumb-overlay { background:rgba(21,87,192,.12); }
+.lic-thumb-zoom { width:36px; height:36px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; opacity:0; transform:scale(.7); transition:all .2s; box-shadow:0 2px 12px rgba(0,0,0,.15); }
+.lic-thumb:hover .lic-thumb-zoom { opacity:1; transform:scale(1); }
+
+/* LIGHTBOX */
+.lic-lightbox { position:fixed; inset:0; z-index:2000; background:rgba(7,23,46,.92); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .25s; }
+.lic-lightbox.open { opacity:1; pointer-events:all; }
+.lb-img-wrap { position:relative; max-width:min(860px,92vw); max-height:90vh; }
+.lb-img-wrap img { max-width:100%; max-height:90vh; object-fit:contain; border-radius:8px; box-shadow:0 24px 80px rgba(0,0,0,.5); display:block; }
+.lb-close { position:fixed; top:1.25rem; right:1.25rem; width:44px; height:44px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:50%; cursor:pointer; font-size:18px; color:white; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+.lb-close:hover { background:rgba(255,255,255,.2); }
+.lb-nav { position:fixed; top:50%; transform:translateY(-50%); width:48px; height:64px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; cursor:pointer; font-size:24px; color:white; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+.lb-nav:hover { background:rgba(255,255,255,.18); }
+.lb-prev { left:1rem; }
+.lb-next { right:1rem; }
+.lb-counter { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%); font-size:12px; color:rgba(255,255,255,.5); font-weight:600; background:rgba(0,0,0,.3); padding:5px 14px; border-radius:20px; }
+
+@media (max-width:1024px) { .lic-panel.active { grid-template-columns:repeat(4,1fr); } }
+@media (max-width:768px)  { .lic-panel.active { grid-template-columns:repeat(3,1fr); } .lb-nav { display:none; } }
+@media (max-width:480px)  { .lic-panel.active { grid-template-columns:repeat(2,1fr); } }
+
 /* TEAM */
 .team-sec { background:var(--off); padding:5rem 2.5rem; border-top:1px solid var(--border); }
 .team-i { max-width:1280px; margin:0 auto; }
@@ -439,8 +476,74 @@
         <div class="lic-pg-desc">Право на проведение электрических измерений: сопротивление изоляции, заземление, петля фаза-нуль, молниезащита. Протоколы принимают Ростехнадзор и страховщики.</div>
       </div>
     </div>
+
+    <!-- DOCUMENT GALLERY -->
+    <div class="lic-gallery-sep fade">
+      <div class="lic-gallery-hd">
+        <h3>Сканы документов</h3>
+        <p>Нажмите на документ для просмотра в полном размере</p>
+      </div>
+
+      <div class="lic-tabs">
+        <button class="lic-tab active" data-tab="edu">📜 Образовательная деятельность <span style="opacity:.6;font-weight:400">(15)</span></button>
+        <button class="lic-tab" data-tab="lab">🔬 Испытательная лаборатория <span style="opacity:.6;font-weight:400">(3)</span></button>
+        <button class="lic-tab" data-tab="elec">⚡ Электролаборатория <span style="opacity:.6;font-weight:400">(4)</span></button>
+        <button class="lic-tab" data-tab="cert">🏅 Сертификаты <span style="opacity:.6;font-weight:400">(1)</span></button>
+      </div>
+
+      <!-- Образовательная деятельность -->
+      <div class="lic-panel active" id="tab-edu">
+        <div class="lic-thumb" data-group="edu" data-idx="0"><img src="https://ukcpoisk.ru/upload/iblock/7ef/7ef8b37af664a4bc6ca229f711e17a95.jpg" alt="Лицензия 1" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="1"><img src="https://ukcpoisk.ru/upload/iblock/5af/os97ezeszpcqp4st7yi1a08i8i29sk4g.jpg" alt="Лицензия 2" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="2"><img src="https://ukcpoisk.ru/upload/iblock/4dd/5ldrsihzfi2jkf2ct1neqjszud5vofxj.jpg" alt="Лицензия 3" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="3"><img src="https://ukcpoisk.ru/upload/iblock/d96/d96ebfa41337d8db5ccb33345108b4f9.jpg" alt="Лицензия 4" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="4"><img src="https://ukcpoisk.ru/upload/iblock/bcf/36kzddoljw636lk7gngje51qt0woejte.jpg" alt="Лицензия 5" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="5"><img src="https://ukcpoisk.ru/upload/iblock/eca/zweobjk0gn27y4j14ms0daxf004do1h3.jpg" alt="Лицензия 6" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="6"><img src="https://ukcpoisk.ru/upload/iblock/12c/7tydonfj8wquc16tnc1df3f6pn8bt8rt.jpg" alt="Лицензия 7" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="7"><img src="https://ukcpoisk.ru/upload/iblock/f40/ct1tgnrgqf4uakrt8zhm71gl953jxwk1.jpg" alt="Лицензия 8" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="8"><img src="https://ukcpoisk.ru/upload/iblock/6fa/6fafb6994168e8933b47f05eedf470ea.jpg" alt="Лицензия 9" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="9"><img src="https://ukcpoisk.ru/upload/iblock/204/204feec03de023d795a6046d03184836.jpg" alt="Лицензия 10" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="10"><img src="https://ukcpoisk.ru/upload/iblock/c60/c602451615dad79650ee3bf157986a6b.jpg" alt="Лицензия 11" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="11"><img src="https://ukcpoisk.ru/upload/iblock/d2b/ks6trng26qr92xg0llhrzfde1ohnqi51.jpg" alt="Лицензия 12" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="12"><img src="https://ukcpoisk.ru/upload/iblock/58f/cagbw6xzp19bms21m9v7g9u8oqyyd2n6.jpg" alt="Лицензия 13" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="13"><img src="https://ukcpoisk.ru/upload/iblock/a60/a600c5a9444117b1e5424b8a0494dc14.jpg" alt="Лицензия 14" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="edu" data-idx="14"><img src="https://ukcpoisk.ru/upload/iblock/301/301bf31a71f37cdc07e915ef4ea11931.jpg" alt="Лицензия 15" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+      </div>
+
+      <!-- Испытательная лаборатория -->
+      <div class="lic-panel" id="tab-lab">
+        <div class="lic-thumb" data-group="lab" data-idx="0"><img src="https://ukcpoisk.ru/upload/iblock/a89/a89b7b72aec1cd5489cc2f205b4b869f.jpg" alt="Аккредитация ИЛ 1" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="lab" data-idx="1"><img src="https://ukcpoisk.ru/upload/iblock/682/6829e0a43184bebf91e8b30ec4754fc1.jpg" alt="Аккредитация ИЛ 2" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="lab" data-idx="2"><img src="https://ukcpoisk.ru/upload/iblock/1ee/1ee667c1af610af8f01c10c0aba1529a.jpg" alt="Аккредитация ИЛ 3" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+      </div>
+
+      <!-- Электролаборатория -->
+      <div class="lic-panel" id="tab-elec">
+        <div class="lic-thumb" data-group="elec" data-idx="0"><img src="https://ukcpoisk.ru/upload/iblock/7e7/q0kzxxw8vsdvkmvp9u32nnjv8ztb6bdg.jpg" alt="Электролаборатория 1" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="elec" data-idx="1"><img src="https://ukcpoisk.ru/upload/iblock/3ac/3ad85f240rbdie05qdjn0fueljv5l0ps.jpg" alt="Электролаборатория 2" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="elec" data-idx="2"><img src="https://ukcpoisk.ru/upload/iblock/3f9/qkcske05pwepppubudi66k1eolju1xr0.jpg" alt="Электролаборатория 3" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+        <div class="lic-thumb" data-group="elec" data-idx="3"><img src="https://ukcpoisk.ru/upload/iblock/e4c/5xrs1dunjblwhw1gtl19xmg39pfyj05h.jpg" alt="Электролаборатория 4" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+      </div>
+
+      <!-- Сертификаты -->
+      <div class="lic-panel" id="tab-cert">
+        <div class="lic-thumb" data-group="cert" data-idx="0"><img src="https://ukcpoisk.ru/upload/iblock/549/549714dab3aa362224e328a45382c4dd.jpg" alt="Сертификат" loading="lazy"><div class="lic-thumb-overlay"><div class="lic-thumb-zoom">🔍</div></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lic-lightbox" id="lic-lightbox">
+  <button class="lb-close" id="lb-close">✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev">‹</button>
+  <div class="lb-img-wrap">
+    <img src="" alt="" id="lb-img">
+  </div>
+  <button class="lb-nav lb-next" id="lb-next">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
 
 <!-- TEAM -->
 <section class="team-sec">
@@ -648,6 +751,61 @@ const obs = new IntersectionObserver(e => {
   e.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
 }, { threshold: .08 });
 document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+/* ── LICENSE TABS ── */
+document.querySelectorAll('.lic-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.lic-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.lic-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  });
+});
+
+/* ── LIGHTBOX ── */
+const lb       = document.getElementById('lic-lightbox');
+const lbImg    = document.getElementById('lb-img');
+const lbCtr    = document.getElementById('lb-counter');
+let lbItems    = [];
+let lbIdx      = 0;
+
+function lbOpen(group, idx) {
+  lbItems = Array.from(document.querySelectorAll(`.lic-thumb[data-group="${group}"]`));
+  lbIdx   = idx;
+  lbShow();
+  lb.classList.add('open');
+}
+
+function lbShow() {
+  const thumb = lbItems[lbIdx];
+  lbImg.src = thumb.dataset.full || thumb.querySelector('img').src;
+  lbImg.alt = thumb.querySelector('img').alt || '';
+  lbCtr.textContent = (lbIdx + 1) + ' / ' + lbItems.length;
+}
+
+function lbClose() { lb.classList.remove('open'); lbImg.src = ''; }
+
+document.querySelectorAll('.lic-thumb').forEach(th => {
+  th.addEventListener('click', () => lbOpen(th.dataset.group, parseInt(th.dataset.idx, 10)));
+});
+
+document.getElementById('lb-close').addEventListener('click', lbClose);
+document.getElementById('lb-prev').addEventListener('click', () => {
+  lbIdx = (lbIdx - 1 + lbItems.length) % lbItems.length;
+  lbShow();
+});
+document.getElementById('lb-next').addEventListener('click', () => {
+  lbIdx = (lbIdx + 1) % lbItems.length;
+  lbShow();
+});
+lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape')     lbClose();
+  if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + lbItems.length) % lbItems.length; lbShow(); }
+  if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % lbItems.length; lbShow(); }
+});
 </script>
 </body>
 </html>
